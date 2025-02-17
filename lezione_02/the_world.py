@@ -20,8 +20,8 @@ print(sorted(world, reverse = True))
 print(world)
 
 '''world=sorted(world)
-world.reverse()
-print(world)'''
+world.reverse()   
+print(world)''' #come usare sorted e reverse per modificare la lista
 
 world.reverse()
 print(world)
