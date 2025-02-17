@@ -31,3 +31,14 @@ for z in bros:
     print(f"Ciao {z} ti andrebbe di venire a cena da me ? ")
 
 print("posso inviatare a cena solo due persone ")
+
+print(f"mi dispiace {bros.pop(0)}, ma non posso più invitarti")
+print(f"mi dispiace {bros.pop(1)}, ma non posso più invitarti")
+print(f"mi dispiace {bros.pop(2)}, ma non posso più invitarti")
+
+print(f"{bros[0]}, te sei ancora invitato")
+print(f"{bros[1]}, te sei ancora invitato")
+
+bros.remove("Paolo")
+bros.remove("Augusto")
+print(bros)
