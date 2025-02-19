@@ -3,5 +3,6 @@
  Albert Einstein una volta disse: "Una persona che non ha mai commesso un errore non ha mai provato nulla di nuovo".'''
 
 nome: str = "Stan Lee"
-citazione: str = "'Eccellente!'"
-print(f"{nome} una volta disse: {citazione}")
+citazione: str = "Eccellente!"
+print(f"{nome} una volta disse: \"{citazione}\"")
+
