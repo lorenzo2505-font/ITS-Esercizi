@@ -6,8 +6,12 @@ il nome dell'ospite che non potrà partecipare.
 • Stampa una seconda serie di messaggi di invito, uno per ogni persona ancora presente nell'elenco.'''
 
 bros: list = ["Antonio", "Valerio", "Massimiliano"]
-for i in bros:
-    print(f"Ciao {i} ti va di venire a cena da me ?")
+'''for i in bros:
+    print(f"Ciao {i} ti va di venire a cena da me ?")'''
+
+print(f"Ciao {bros[0]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[1]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[2]} ti va di venire a cena da me ?")
 
 print(f"{bros[2]} non può venire ")
 
@@ -15,8 +19,14 @@ bros.remove("Massimiliano")
 
 bros.append("Augusto")
 
-for j in bros:
-    print(f"Ciao {j}, ti va di venire a cena da me ? ")
+'''for j in bros:
+    print(f"Ciao {j}, ti va di venire a cena da me ? ")'''
+
+print(f"Ciao {bros[0]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[1]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[2]} ti va di venire a cena da me ?")
+
+
 
 
 

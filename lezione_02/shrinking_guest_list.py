@@ -9,8 +9,12 @@ hai appena scoperto che il tuo nuovo tavolo da pranzo non arriverà in tempo per
 Stampa la tua lista per assicurarti di avere effettivamente una lista vuota alla fine del tuo programma.'''
 
 bros: list = ["Antonio", "Valerio", "Massimiliano"]
-for i in bros:
-    print(f"Ciao {i} ti va di venire a cena da me ?")
+'''for i in bros:
+    print(f"Ciao {i} ti va di venire a cena da me ?")'''
+
+print(f"Ciao {bros[0]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[1]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[2]} ti va di venire a cena da me ?")
 
 print(f"{bros[2]} non può venire ")
 
@@ -18,17 +22,28 @@ bros.remove("Massimiliano")
 
 bros.append("Augusto")
 
-for j in bros:
-    print(f"Ciao {j}, ti va di venire a cena da me ? ")
+'''for j in bros:
+    print(f"Ciao {j}, ti va di venire a cena da me ? ")'''
+
+print(f"Ciao {bros[0]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[1]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[2]} ti va di venire a cena da me ?")
 
 print("ho trovato un tavolo più grande")
 
-bros.insert(1, "Paolo")
+bros.insert(len(bros)// 1, "Paolo")
 
 bros.append("Thomas")
 
-for z in bros: 
-    print(f"Ciao {z} ti andrebbe di venire a cena da me ? ")
+'''for z in bros: 
+    print(f"Ciao {z} ti andrebbe di venire a cena da me ? ")'''
+
+print(f"Ciao {bros[0]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[1]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[2]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[3]} ti va di venire a cena da me ?")
+print(f"Ciao {bros[4]} ti va di venire a cena da me ?")
+
 
 print("posso inviatare a cena solo due persone ")
 
@@ -39,6 +54,7 @@ print(f"mi dispiace {bros.pop(2)}, ma non posso più invitarti")
 print(f"{bros[0]}, te sei ancora invitato")
 print(f"{bros[1]}, te sei ancora invitato")
 
-bros.remove("Paolo")
-bros.remove("Augusto")
+del bros [1]
+del bros [0]
 print(bros)
+

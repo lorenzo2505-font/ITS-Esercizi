@@ -3,9 +3,14 @@
  uno alla volta.'''
 
 name: list = ["Matteo", "Francesco", "Luca", "Thomas", "Camilla"]
-for i in name:
-    print(i)
+'''for i in name:
+    print(i)'''
 
+print(name[0])
+print(name[1])
+print(name[2])
+print(name[3])
+print(name[4])
 
 
 

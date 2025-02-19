@@ -13,6 +13,7 @@ Stampa l'elenco per mostrare che il suo ordine è stato modificato.
 Stampa l'elenco per mostrare che il suo ordine è cambiato.'''
 
 world: list = ["Londra", "Madrid", "Tokyo", "Barcellona", "New York"]
+
 print(world)
 print(sorted(world))
 print(world)
@@ -29,10 +30,11 @@ print(world)
 world.reverse()
 print(world)
 
-world = sorted(world)
+world.sort()
 print(world)
 
-world = sorted(world)
+
+world.sort()
 world.reverse()
 print(world)
 
