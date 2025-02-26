@@ -25,7 +25,7 @@ for i in range(0, len(friend_pizzas)):
 
 #odd numbers 
 
-odd: list[int] = [] #definisco una lista 
+odd: list[int] = [] #definisco una lista inizialmente vuota
 
 for i in range (1, 20 +1, 2):
     
@@ -37,7 +37,7 @@ print(odd) #stampo la lista
 
 #threes 
 
-mylist: list[int] = [] #definisco una lista
+mylist: list[int] = [] #definisco una lista inzialmente vuota
 
 
 for i in range(3, 30 +1):
