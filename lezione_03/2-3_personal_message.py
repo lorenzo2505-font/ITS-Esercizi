@@ -4,4 +4,3 @@
 nome_persona: str = "Matteo Argenti"
 print(f"ciao {nome_persona} come è andata l'operazione ?")
 
-

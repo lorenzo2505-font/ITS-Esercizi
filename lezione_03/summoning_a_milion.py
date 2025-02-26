@@ -3,6 +3,10 @@ per assicurarti che l'elenco inizi effettivamente da uno e termini con un milion
  Inoltre, usa la funzione sum() per vedere quanto velocemente Python può aggiungere un milione di numeri.'''
 
 mylist: list[int] = []
+
 for i  in range(1, 1000000 + 1):
     mylist.append(i)
-    print(mylist)
+    
+print(max(mylist))
+print(min(mylist))
+print(sum(mylist))
