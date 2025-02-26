@@ -25,11 +25,24 @@ for i in range(0, len(friend_pizzas)):
 
 #odd numbers 
 
-odd: list[int] = [] 
+odd: list[int] = [] #definisco una lista 
 
 for i in range (1, 20 +1, 2):
     
-    odd.append(i)
+    odd.append(i) #faccio un ciclo for in cui per ogni elemento da 1 a 20 saltando di 2 lo aggiungo alla lista
 
 
-print(odd)
+print(odd) #stampo la lista 
+
+
+#threes 
+
+mylist: list[int] = [] #definisco una lista
+
+
+for i in range(3, 30 +1):
+    if i % 3 == 0:
+        mylist.append(i) #faccio un ciclo for con if in cui per ogni elemnto da 3 a 30 se è divisibile per 3 lo aggiungo alla lista 
+
+
+print(mylist) #stampo la lista
