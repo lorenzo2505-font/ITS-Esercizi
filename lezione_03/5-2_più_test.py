@@ -74,5 +74,7 @@ if string_test in frutta:
 else:
     print("la parola non è nella lista")
 
+    #final test
+
 
 
