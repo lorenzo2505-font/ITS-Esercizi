@@ -75,6 +75,7 @@ else:
     print("la parola non è nella lista")
 
     #git è tornato a funzionare 
+    #sarai riuscito a funzionare ?
 
 
 
