@@ -13,3 +13,11 @@ else:
         i+=1
 print(somma)
 
+'''for i in range (a, b + 1):
+        somma = somma + i'''
+
+#print(somma)
+
+
+
+#somma = sum(range (a, b + 1))

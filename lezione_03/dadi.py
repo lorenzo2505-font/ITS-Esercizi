@@ -16,9 +16,13 @@ oppure scende a zero (sconfitta).'''
 
 while True:
     punteggio: int
+
     D1 = int(input("lancio del primo dado: "))
+
     D2 = int(input("lancio del secondo dado: "))
+
     somma = D1 + D2
+    
     if (D1 > 6) and (D2 > 6) and (D1 <= 0) and (D2 <= 0):
       print("errore")
     else:

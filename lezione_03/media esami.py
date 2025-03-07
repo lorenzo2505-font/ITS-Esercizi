@@ -18,7 +18,12 @@ while True:
     else:
         if option == "si":
             voto = int(input("inserisci voto: "))
-            i+=1
-            somma = somma + voto
-            media = somma / i
+            if voto < 0:
+                print("errore")
+            else:
+                i+=1
+                somma = somma + voto
+                media = somma / i
+
+                 
 print(media)
