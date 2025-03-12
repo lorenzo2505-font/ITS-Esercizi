@@ -51,4 +51,4 @@ user = get_user ("Alice", "Admin")
 
 print(user["name"])
 print(user["role"])
-print(type(user))
+print(type(user)) 
