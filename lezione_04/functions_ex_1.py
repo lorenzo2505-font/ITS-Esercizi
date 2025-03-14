@@ -11,5 +11,6 @@ def check_value(num: int):
     else:
         print(f"{num} è minore di 5")
 
+if __name__ == "__main___":
 
-mynum = check_value(num = int(input("inserisci numero: ")))
+    mynum = check_value(num = int(input("inserisci numero: ")))
