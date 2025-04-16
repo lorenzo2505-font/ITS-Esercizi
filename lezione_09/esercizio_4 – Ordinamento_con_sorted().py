@@ -8,3 +8,4 @@ studenti = [("Luca", 21), ("Anna", 19), ("Marco", 22)]
 sorted_age: list  = sorted(studenti, key = lambda age: age[1] )
 
 print(sorted_age)
+
