@@ -10,3 +10,4 @@ power: Callable [[int], int] = lambda a: a**2
 
 print(power(int(input("inserisci numero: "))))
 
+''''''
