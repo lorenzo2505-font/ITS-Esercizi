@@ -14,7 +14,16 @@ from typing import Callable
 
 def moltiplicatore (n: int):
 
-    '''prodotto:'''
+    
+
+    return lambda valore: valore * n
+
+per_due = moltiplicatore(2)
+
+print(per_due(10))
+
+
+    
 
 
 

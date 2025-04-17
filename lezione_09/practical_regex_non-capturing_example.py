@@ -14,5 +14,5 @@ print("Non cattura:", re.findall(r"(?:abc)+", text)) # Output ['abcabcabc’]
 
 #r "(?:abc)+" None Capturing Group
 
-
+ 
 

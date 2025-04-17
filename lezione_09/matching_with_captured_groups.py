@@ -8,3 +8,4 @@ if match:
     print("Gruppo 1 (numeri):", match.group(1)) # Output: "123"
     print("Gruppo 2 (lettere):", match.group(2)) # Output: "ABC"
 
+ 

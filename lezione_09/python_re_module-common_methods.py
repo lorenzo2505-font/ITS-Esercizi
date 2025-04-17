@@ -48,3 +48,4 @@ pattern = re.compile(r"\d+")
 print(pattern.findall("a1b2")) #compila una regex in un regex object per il riutilizzo
 # Matches: ['1', '2'] 
 
+ 
