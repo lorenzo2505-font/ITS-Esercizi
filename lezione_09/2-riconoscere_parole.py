@@ -13,3 +13,6 @@ mystr: str = "Pippo paperino naso"
 risultato: list = re.findall(r"[A-z]{5,10}", mystr)
 
 print(risultato)
+
+####
+
