@@ -27,7 +27,7 @@ class Studente(Persona):
 
         #istruzioni che inizializzano un oggetto della classe Studente 
 
-        self.set(matricola)
+        self.setMatricola(matricola)
 
 
         #metodi setter 
