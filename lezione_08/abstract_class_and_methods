@@ -1,0 +1,17 @@
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def description(self) -> str: #Attempting to instantiate Vehicle() raises TypeError.
+        pass
+
+class Car(Vehicle):
+    def description(self) -> str: #Both Car and Bicycle must implement description() to be instantiated.
+
+        return "I am a car."
+
+def show_description(vehicle: Vehicle) -> None: #Promotes polymorphic use: you can call .description() on any Vehicle subclass.
+    print(vehicle.description())
+
+
+show_description(Car()) # Output "I’m a car."
