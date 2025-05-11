@@ -4,4 +4,4 @@ mode: str = "r"
 
 encoding: str = "utf-8"
 
-config: dict = {"LRNZ": {"name": "lorenzo", "cognome": "acomanni", "età": 20}}
+config: dict = {"LRNZ": {"name": "lorenzo", "cognome": "acomanni", "età": 20}} 
