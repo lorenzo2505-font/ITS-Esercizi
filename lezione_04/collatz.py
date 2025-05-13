@@ -1,3 +1,5 @@
+import matplotlib as plt 
+
 def fun1 (n1: int):
 
     if n1 % 2 == 0:
@@ -27,3 +29,34 @@ def fun2(n2: int):
        
 
 print(fun2(5))
+
+
+
+
+
+def collatz (num: float):
+
+    mylist: list = [num]
+
+    while num != 1:
+
+        if num % 2 == 0:
+
+            num = num / 2
+
+        else:
+
+            num = (3 * num) + 1
+
+        mylist.append(num)
+
+    return mylist
+
+
+mylist2: list [float] = collatz(8.0)
+
+plt.plot(mylist2)
+
+plt.show ()
+
+
