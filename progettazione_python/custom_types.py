@@ -230,7 +230,7 @@ class Telefono (str):
         
         else:
 
-            raise ValueError("il numero di telefono deve specificare lo specifico modello")
+            raise ValueError ("numero di telefono inserito non correttamente")
 
 
 
