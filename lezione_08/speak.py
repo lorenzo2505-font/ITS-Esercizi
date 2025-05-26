@@ -22,7 +22,7 @@ class Persona:
         if age < 0 or age > 130:
             self.age = 0
         else:
-            self.age = age
+            self.age = 0
 
     #ritorna il valore di name
     def getName (self) -> str:
@@ -47,3 +47,6 @@ class Persona:
             print(f"{self.name} {self.lastname} e' una persona adulta!")
         else:
             print(f"{self.name} {self.lastname} e' una persona anziana!")
+
+    def speak(self):
+        print(f"hello my name is {self.getName()} ")

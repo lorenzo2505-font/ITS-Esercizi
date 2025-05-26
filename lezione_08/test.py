@@ -8,7 +8,7 @@ fm: Persona = Persona ("Federico", "March", 29)
 print(fm)
 
 #creo un oggetto della classse studente 
-studente1: Studente = Studente("Mario", "Rossi", "0123456")
+studente1: Studente = Studente("Mario", "Rossi", 20, "sos")
 
 
 #visualizzare 
