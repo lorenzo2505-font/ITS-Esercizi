@@ -166,7 +166,7 @@ class Progetto:
     
 p: Progetto = Progetto ("project blue lock", 500000000.0)
 
-print(p)
+#print(p)
 
             
     
