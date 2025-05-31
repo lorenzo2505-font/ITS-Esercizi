@@ -1,19 +1,65 @@
 from custom_types import *
 
+
+
+
+class Nazione:
+
+    _nome: str # noto alla nascita
+
+    def __init__(self, nome: str):
+        
+        self.setNome(nome)
+    
+    def setNome(self, nome: str):
+
+        if nome:
+
+            self._nome = nome
+        
+        else:
+
+            ValueError("inserire un nome valido")
+    
+
+    def nome(self):
+
+        return self._nome
+    
+    def __str__(self):
+        
+        return f"nome nazione: {self._nome}"
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Città:
 
     _nome: str # noto alla nascita
 
     _abitanti: int # noto alla nascita
 
+    _nazione: Nazione # noto alla nascita
 
-    def __init__(self, nome: str, abitanti: int):
+
+    def __init__(self, nome: str, abitanti: int, nazione: Nazione):
         
 
 
         self.setNome(nome)
 
         self.setAbitanti(abitanti)
+
+        self.setNazione(nazione)
     
     def setNome(self, nome: str):
 
@@ -35,6 +81,10 @@ class Città:
 
             raise ValueError("il numero di abitanti non può essere negativo")
     
+    def setNazione(self, nazione: Nazione):
+
+        self._nazione = nazione
+    
 
     def nome(self):
 
@@ -44,9 +94,87 @@ class Città:
 
         return self._abitanti
     
+    def nazione(self):
+
+        return self._nazione
+    
     def __str__(self):
         
         return f"nome città: {self._nome}, abitanti: {self._abitanti}"
+
+
+
+
+
+
+
+
+
+
+
+class Aereoporto:
+
+    _nome: str # noto alla nascita
+
+    _codice: CodiceAereoporto # <<immutable>> noto alla nascita
+
+    _città: Città # <<immutable>> noto alla nascita 
+
+
+    def __init__(self, nome: str, codice: CodiceAereoporto, città: Città):
+        
+        self.setNome(nome)
+
+        self._codice = codice
+
+        self._città = città
+    
+
+    def setNome(self, nome: str):
+
+        
+        if nome:
+
+            self._nome = nome
+        
+        else:
+
+            raise ValueError("inserire un nome valido")
+    
+
+    def nome(self):
+
+        return self._nome
+    
+    def codice(self):
+
+        return self._codice
+    
+    def città (self):
+
+        return self._città
+    
+    def __str__(self):
+
+        return f"nome aereoporto: {self._nome}, codice: {self._codice}"
+    
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
 
 
 class Compagnia:
@@ -101,7 +229,7 @@ class Compagnia:
     
     def __str__(self):
         
-        return f"nome compagnia: {self._nome}, anno di fondazione: {self._anno}, città: {self._città}"
+        return f"nome compagnia: {self._nome}, anno di fondazione: {self._anno}"
 
 
 
@@ -130,10 +258,15 @@ class Volo:
 
     _compagnia: Compagnia # <<immutable>>, noto alla nascita
 
+    _aereoportoPartenza: Aereoporto # <<immutable>>, noto alla nascita
+
+    _aereportoArrivo: Aereoporto # noto alla nascita
+
+
     
 
 
-    def __init__(self, durata_min: int, codice: CodiceVolo, compagnia: Compagnia):
+    def __init__(self, durata_min: int, codice: CodiceVolo, compagnia: Compagnia, aereoportoPartenza: Aereoporto, aereoportoArrivo: Aereoporto):
         
 
         self.setDurata(durata_min)
@@ -141,6 +274,10 @@ class Volo:
         self._codice = codice
 
         self._compagnia = compagnia
+
+        self._aereoportoPartenza = aereoportoPartenza
+
+        self.setAereoportoArrivo(self)
     
     def setDurata(self, durata_min: int):
 
@@ -151,6 +288,10 @@ class Volo:
         else:
 
             self._durata = durata_min
+    
+    def setAereoportoArrivo(self, aereportoArrivo: Aereoporto):
+
+        self._aereportoArrivo = aereportoArrivo
     
     def durata(self):
 
@@ -164,112 +305,77 @@ class Volo:
 
         return self._compagnia
     
-    def __str__(self):
-        
-        return f"durata volo: {self._durata} minuti, codice: {self._codice}, compagnia: {self._compagnia}"
+    def aereoportoPartenza(self):
 
-
-c: CodiceVolo = CodiceVolo("AZ123")
-
-volo: Volo = Volo(60, c)
-
-#print(v)
-
-
-
-
+        return self._aereoportoPartenza
     
+    def aereoportoArrivo(self):
 
-compagnia: Compagnia = Compagnia("pierlions flights", 1998)
-
-#print(c)
-
-
-
-
-
-
-città: Città = Città("roma", 3000000)
-
-#print(città)
-
-
-
-class Nazione:
-
-    _nome: str # noto alla nascita
-
-    def __init__(self, nome: str):
-        
-        self.setNome(nome)
+        return self._aereportoArrivo
     
-    def setNome(self, nome: str):
-
-        if nome:
-
-            self._nome = nome
-        
-        else:
-
-            ValueError("inserire un nome valido")
-    
-
-    def nome(self):
-
-        return self._nome
     
     def __str__(self):
         
-        return f"nome nazione: {self._nome}"
+        return f"durata volo: {self._durata} minuti, codice: {self._codice}"
+
+
+
+
+
+n: Nazione = Nazione("italia")
+
+print(n)
+
+
+c: Città = Città("roma", 3000000, n)
+
+print(c)
+
+
+cod1: CodiceAereoporto = CodiceAereoporto("FCO")
+
+a: Aereoporto = Aereoporto("aereporto di fiumicino", cod1 , c)
+
+print(a)
+
+
+comp: Compagnia = Compagnia("pierlions company", 1998, c)
+
+print(comp)
+
+
+cod2: CodiceVolo = CodiceVolo("AZ123")
+
+cod3: CodiceAereoporto = CodiceAereoporto("MLO")
+
+milano: Città = Città("milano", 2000000, n)
+
+aArrivo: Aereoporto = Aereoporto ("aereporto di milano", cod3, milano)
+
+
+v: Volo = Volo (60, cod2, comp, a, aArrivo)
+
+print(v)
+
+
+
+
+
+
     
 
-nazione: Nazione = Nazione ("italia")
-
-#print(nazione)
 
 
-class Aereoporto:
-
-    _nome: str # noto alla nascita
-
-    _codice: CodiceAereoporto # <<immutable>> noto alla nascita
 
 
-    def __init__(self, nome: str, codice: CodiceAereoporto):
-        
-        self.setNome(nome)
-
-        self._codice = codice
-    
-
-    def setNome(self, nome: str):
-
-        
-        if nome:
-
-            self._nome = nome
-        
-        else:
-
-            raise ValueError("inserire un nome valido")
-    
-
-    def nome(self):
-
-        return self._nome
-    
-    def codice(self):
-
-        return self._codice
-    
-    def __str__(self):
-
-        return f"nome aereoporto: {self._nome}, codice: {self._codice}"
 
 
-aereoporto: Aereoporto = Aereoporto ("aereoporto di fiumicino", "FCO")
 
-#print(aereoporto)
+
+
+
+
+
 
 
 

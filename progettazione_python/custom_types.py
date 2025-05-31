@@ -250,7 +250,7 @@ class CodiceVolo (str):
 
 
 
-class CodiceAereoporto:
+class CodiceAereoporto (str):
 
     def __new__(cls, aereoporto: str):
 
