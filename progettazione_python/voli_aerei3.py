@@ -322,7 +322,7 @@ class Volo:
 
 
 
-n: Nazione = Nazione("italia")
+'''n: Nazione = Nazione("italia")
 
 print(n)
 
@@ -355,7 +355,7 @@ aArrivo: Aereoporto = Aereoporto ("aereporto di milano", cod3, milano)
 
 v: Volo = Volo (60, cod2, comp, a, aArrivo)
 
-print(v)
+print(v)'''
 
 
 
