@@ -9,7 +9,7 @@ from enum import *
 
 
 
-class CodiceFiscale2 (str):
+class CodiceFiscale (str):
 
     #gli oggetti di questa classe sono stringhe
     # stringhe che rispettano il formato del codice fiscale
@@ -234,4 +234,31 @@ class Telefono (str):
 
 
 
-t: Telefono = Telefono("+39123456789")
+
+class CodiceVolo (str):
+
+    def __new__(cls, volo: str):
+
+        if re.fullmatch(r"\b[A-Z]{2}\d{3,4}\b", volo):
+
+            return super().__new__(cls, volo)
+        
+        else:
+
+            raise ValueError("inserire un codice di volo corretto")
+
+
+
+
+class CodiceAereoporto:
+
+    def __new__(cls, aereoporto: str):
+
+        if re.fullmatch(r"\b[A-Z]{3}\b", aereoporto):
+
+            return super().__new__(cls, aereoporto)
+        
+        else:
+
+            raise ValueError("inserire un codice di volo valido")
+        
