@@ -1,0 +1,36 @@
+SPECIFICA DELL'OPERAZIONE PREZZO
+
+
+SPECIFICA DELLA CLASSE ASTA
+
+
+Ogni istanza di questa classe (erede di PostoOggetto) rappresenta un'asta.
+
+prezzo(i: DataOra): Reale > = 0
+
+Pre-condizioni
+
+L'oggetto di invocazione ("this") è coinvolto da nessuno a più link dell'associazione "asta_bid", 
+con valore dell'attributo "istante" non successivo al valore "i"
+
+Post-condizioni
+
+L'operazione non modifica il livello estensionale 
+
+il valore del risultato  ("result") è definito come segue:
+
+1. sia B l'insieme dei link di associazione "asta_b" della classe Bid che coinvolgono this 
+ da avere un valore per l'attributo istante non successivo
+ al valore i
+
+2. sia considerato x come il valore del prezzo (reale) con l'istante più recente
+
+3. sia considerato r come valore di rialzo del prezzo ad ogni nuovo valore dell'istante
+
+4. il nuovo valore di x è determinato dalla somma tra il suo valore attuale e il valore di r
+
+
+
+
+
+5. result = x 

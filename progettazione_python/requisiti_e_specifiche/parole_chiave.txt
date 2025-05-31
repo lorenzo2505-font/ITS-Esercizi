@@ -1,0 +1,5 @@
+-per ogni: parla di ogni elemento dell'insieme
+
+-esiste: parla di almeno un elemento dell'insieme 
+
+-non esiste

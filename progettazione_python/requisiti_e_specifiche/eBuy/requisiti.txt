@@ -1,0 +1,115 @@
+RAFFINAMENTO REQUISITI
+
+
+1.Utente:
+		1.1.username: Univoco
+		1.2. istante_registrazione: DataOra
+
+		1.4.bid (vedi requisito 4)
+		1.5.acqusiti “compralo subito” (vedi requisito 6)
+		1.5. Se privato:
+				1.5.1.può fare bid (vedi requisito 4) oppure acquistare post su compralo_subito(vedi requisito 2.6.)
+		1.6. Se venditore professionale:
+							1.6.1. URL vetrina
+							1.6.2. Post pubblicati
+							1.6.3. popolarità, calcolata come: numero di utenti che hanno effettuato bid sulle loro aste, negli ultimi 12 mesi + utenti che hanno acquistato post di tipo “compralo_subito” negli ultimi 12 mesi. può essere bassa se < 50 media se tra 50 e 300 e alta se > 300
+							1.6.4. affidabilità:
+										1.6.4.1:  sia m = media, aritmetica dei feedback ricevuti, sia z = fp / ft (fp = insieme dei feedback positivi e ft = insieme dei feedback total) affidabilità = m * (1-z) / 5 (quindi sempre tra zero e 1)
+
+2.Post:
+	2.1.descrizione
+	2.2.prezzo: ???
+	2.3.metodo_pagamento: (Bonifico o Carta Di Credito)
+	
+	2.5. se_asta:
+			2.5.1. prezzo_iniziale: Reale >= 0
+			2.5.3. istante_scadenza: DataOra
+			2.5.4. Bid (vedi requisito 4)
+			2.5.5. Prezzo Corrente (calcolabile)
+			2.5.6.Vincitore asta (se esiste)
+
+	2.6. se_”compralo subito”:
+					2.6.1. prezzo: reale > 0									2.6.2. acquirente: utente che ha acquisito per primo 
+(vedere requisito 1)
+
+	2.7.i feedback a cui interessa:
+					2.7.1. voto da 0 a 5
+					2.7.2. commento (opzionale)
+
+
+3.Ogetti Di Vendita:
+			3.1. Categoria: (vedi requisito 5)
+			3.2. se nuovo:
+					3.2.1.anni_garanzia: (minimo 2)
+			3.3.se usato:
+					3.3.1.anni_garanzai (minimo 0)
+
+			3.3. condizioni(ottimo,buono, discreto)
+
+4.Bid:
+	4.1.istante: DataOra
+	4.2.utente (vedi requisito 1)
+
+5.Categoria:
+		5.1.Nome
+		5.2. sottocategorie (se_esistono)
+		5.3.Insieme delle sottocategorie data una categoria principale
+
+
+
+999.Il sistema deve permettere le seguenti funzionalità:
+								999.1. Agli utenti deve permettere di pubblicare post per gli oggetti in vendita o senza asta
+
+
+
+SPECIFICA TIPI DI DATO
+
+Condizione: {ottimo, buono, discreto, da sistemare}
+
+URL: stringa secondo standard
+
+Popolarità: {bassa, media, alta}
+
+
+SPECIFICA UTENTE
+
+1.[V.Utente.bidDopoRegistrazione] Un utente privato non può avere bid prima di essere registrato:
+
+Per ogni u: Privato sia b: Bid tale che (b, u):bid_ut deve essere u.registrazione <= b.istante. 
+
+2.[v.Utente.pubblicazioneDopoRegistrazione] Un venditore professionale non può pubblicare post prima di essere registrato:
+
+VERSIONE PER OGNI
+
+per ogni u: VenditoreProf sia p: Post tale che (p, u): pubblica deve essere u.registrazione <= p.pubblicazione
+
+
+VERSIONE NON ESISTE
+
+Non possono esistere venditori professionali che hanno pubblicato post prima della registrazione 
+
+non possono esistere istanze u di venditori professionale e istanze p di PostOggetto tali che
+u e p sono coinvolte in un link di d'associazione "pubblica" e u.registrazione > p.pubblicazione
+
+non esiste u: VenditoreProf e p: PostOggetto tali che (u, p): pubblica e u.registrazione > p.pubblicazione
+
+
+
+
+u: VenditoreProf, p: PostOggetto, (u, p): pubblica 
+
+
+3.[V.Privato:nonSelfAcquisto] Gli utenti privati non possono acquistare oggetti venduti da loro in modalità "Compralosubito"
+
+
+non esiste u: Privato e p: OggettoUsato tale che (u, p): priv_ou e (u, p): cs_ut.
+
+
+ps: p:CompraloSubito può essere rimosso perchè implicito nel fatto che solo istanze di CompraloSubito possono avere link di associaizone cs_ut
+
+
+4,[V.Privato.nonSelfBid] gli utenti privati non possono fare bid sulle aste pubblicate da loro
+
+
+
+

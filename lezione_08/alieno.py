@@ -24,8 +24,12 @@ class Alieno:
     
     def __str__(self):
         return f"alieno proveniente della galassia {self.getGalaxy()}"
-    
-    
+
+
+
+
+
+
 
         
     
