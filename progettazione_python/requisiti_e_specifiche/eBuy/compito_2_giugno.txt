@@ -1,0 +1,47 @@
+SPECIFICHE 
+
+
+[V.PrivatoBid.nonSelfBid] Gli utenti privati non possono fare bid sulle aste pubblicate da loro. 
+
+
+non esiste u1: Privato, b: Bid, u2: VenditoreProgessionale e p: Asta tale che (b, u1,p): bid_ut, asta_bid e (u2, a): pubblica
+
+
+
+[V.PostOggettoAsta.scadenzaDopoPubblicazione]: la scadenza dell'asta deve essere successiva alla sua pubblicazione
+
+
+per ogni p1:PostOgetto sia p2: Asta tale che p1.pubblicazione < p2.scadenza
+
+
+
+[V.PostOggettoCompraloSubito.acquistoDopoPubblicazione]: l'istante di acquisto di un post in modalità "compralo subito" deve essere successivo alla pubblicazione del post
+
+
+
+per ogni p1: PostOgetto e u:Privato sia p2: CompraloSubito tale che (u, p2) istante.cs_ut > p1.pubblicazione
+
+
+
+[V.BidAsta.bidTraPubblicazioneScadenzaAsta]: Ogni bid deve essere fatto tra la pubblicazione del post asta e la sua scadenza.
+
+
+per ogni b: Bid e p: PostOgetto sia a: Asta tale che (b,a): asta_bid deve essere p.pubblicazione <= b.istante <= a.scadenza 
+
+
+
+[V.PostConFeedback]: I feedback dei post possono essere dati solo dopo che il post è stato acquistato in modalità "compralo subito" oppure se l'asta è terminata e ha un vincitore (cioè, almeno un bid).
+
+
+1) per ogni p: PostoOgetto, p: Privato, c:CompraloSubito sia f: PostConFeedback tale che (p,c) cs_ut.istante < f.pubblicazione
+
+2) oppure Asta.scadenza < PostConFeedback.pubblicazione
+
+
+
+
+[l'albero delle categorie non può formare cicli]: 
+
+date le istanze di c(n), c(n + 1) dove c(n) è padre di c(n + 1) e così via fino a un determinato valore di n non devono esserci casi in cui c(n  + x) sia padre di c(n),
+
+quindi una categoria sottostante non può essere padre delle categorie superiori
