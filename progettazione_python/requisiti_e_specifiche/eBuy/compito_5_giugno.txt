@@ -1,0 +1,20 @@
+SPECIFICA DELLE OPERAZIONI POPOLARITA' E AFFIDABILITA'
+
+
+SPECIFICA DELLA CLASSE UTENTE
+
+ogni istanza di questa classe rappresenta un utente
+
+SPECIFICA POPOLARITA'
+
+popolarità(i: DataOra)
+
+1. l'operazione non modifica il livello estensionale
+
+2. il valore del risultato ("result") è definito come segue:
+
+1.2. sia x l'insieme dei link di associazione priv_ou su OggettoUsato nell'ultimo anno 
+
+2.2. y l'insieme dei link di associazione cs_ut su compralo subito nell'ultimo anno
+
+2.3. result = x + y

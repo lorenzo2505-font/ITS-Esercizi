@@ -57,3 +57,4 @@ Raffinamento dei requisiti
 	999.1. Agli utenti deve permettere di pubblicare post per oggetti in vendita con o senza asta.
 	999.2. Agli utenti deve permettere di proporre bid alle aste oppure acquistare post "Compralo Subito"
 	999.3. Agli utenti vincitori di un'asta o che hanno acquistato un oggetto in modalita "CompraloSubito" deve permettere di lasciare un feedback al post
+

@@ -34,18 +34,26 @@ non esiste u1: Privato, b: Bid, u2: VenditoreProgessionale e p: Asta tale che (b
 
 
 
-[V.PostOggettoAsta.scadenzaDopoPubblicazione]: la scadenza dell'asta deve essere successiva alla sua pubblicazione
+[V.Asta.scadenzaDopoPubblicazione]: la scadenza dell'asta deve essere successiva alla sua pubblicazione
 
 
-per ogni p1:PostOgetto sia p2: Asta tale che p1.pubblicazione < p2.scadenza
+1.per ogni: per ogni a: Asta deve essere vero a.pubblicazione <= a.scadenza
+
+2.non esiste: non esiste a: Asta tale che a.scadenza <= a.pubblicazione
+
+3.informale: per ogni istanza di asta deve essere vero che a.pubblicazione <= scadenza
 
 
 
-[V.PostOggettoCompraloSubito.acquistoDopoPubblicazione]: l'istante di acquisto di un post in modalità "compralo subito" deve essere successivo alla pubblicazione del post
+[V.cs_utCompraloSubito.acquistoDopoPubblicazione]: l'istante di acquisto di un post in modalità "compralo subito" deve essere successivo alla pubblicazione del post
 
 
 
-per ogni p1: PostOgetto e u:Privato sia p2: CompraloSubito tale che (u, p2) istante.cs_ut > p1.pubblicazione
+versione mia(e in parte corretta): per ogni c: CompraloSubito e p: privato coinvolti in un link(c, p): cs_ut deve essere vero che che (c.pubblicazione <= (c,p).istante)
+
+
+
+
 
 
 
@@ -56,12 +64,26 @@ per ogni b: Bid e p: PostOgetto sia a: Asta tale che (b,a): asta_bid deve essere
 
 
 
-[V.PostConFeedback]: I feedback dei post possono essere dati solo dopo che il post è stato acquistato in modalità "compralo subito" oppure se l'asta è terminata e ha un vincitore (cioè, almeno un bid).
+[V.PostConFeedbackPrivato.feedbackLegato]: I feedback dei post possono essere dati solo dopo che il post è stato acquistato in modalità "compralo subito" oppure se l'asta è terminata e ha un vincitore (cioè, almeno un bid).
 
 
-1) per ogni p: PostoOgetto, p: Privato, c:CompraloSubito sia f: PostConFeedback tale che (p,c) cs_ut.istante < f.pubblicazione
+1.per ogni c: CompraloSubito e p: Privato coinvolti in un link (c, p): cs_ut deve essere vero che ((c,p).istante <= c.pubblicazione)
 
-2) oppure Asta.scadenza < PostConFeedback.pubblicazione
+1,5(aiuto prof).per ogni f: PostConFeedback sia p: Privato allora esiste un link(p, f): cs_ut
+
+2. per ogni f: PostConFeedback sia p: Privato
+
+2,5(aiuto lore). per ogni a: Asta deve vero che a.scadenza < adesso e b.bid deve essere coinvolto in almeno un link di associazion (b,a): asta_bid
+
+VERSIONE_PROF: non piò esistere f: PostConFeedback se non c'è un p: Privato coinvolto in un ling (f, p): cs_ut.
+
+Inoltre, se f è istanza di asta, deve essere vero che:
+
+-f.scadenza > adesso
+
+-esiste b: Bid tale che (b, f): asta_bid
+
+
 
 
 

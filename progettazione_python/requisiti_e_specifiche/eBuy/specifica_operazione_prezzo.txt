@@ -1,7 +1,7 @@
-SPECIFICA DELL'OPERAZIONE PREZZO
+SPECIFICA DELL'OPERAZIONE PREZZO VERSIONE 1
 
 
-SPECIFICA DELLA CLASSE ASTA
+SPECIFICA DELLA CLASSE ASTA 
 
 
 Ogni istanza di questa classe (erede di PostoOggetto) rappresenta un'asta.
@@ -34,3 +34,123 @@ il valore del risultato  ("result") è definito come segue:
 
 
 5. result = x 
+
+
+
+
+SPECIFICA DELLA CLASSE PREZZO VERSIONE 2 
+
+
+SPECIFICA DELL'OPERAZIONE PREZZO
+
+
+SPECIFICA DELLA CLASSE ASTA
+
+
+Ogni istanza di questa classe (erede di PostoOggetto) rappresenta un'asta.
+
+prezzo(i: DataOra): Reale > = 0
+
+Pre-condizioni
+
+L'oggetto di invocazione ("this") è coinvolto da nessuno a più link dell'associazione "asta_bid", 
+con valore dell'attributo "istante" non successivo al valore "i"
+
+Post-condizioni
+
+L'operazione non modifica il livello estensionale 
+
+il valore del risultato  ("result") è definito come segue:
+
+1. sia B l'insieme dei link di associazione "asta_b" della classe Bid che coinvolgono this 
+ da avere un valore per l'attributo istante non successivo
+ al valore i
+
+2. sia considerato x:
+
+    -se l'insieme B è vuoto x sarà uguale al prezzo base dell'asta
+    -in alternativa x sarà uguale al valore del prezzo del bid con l'istante più recente in Bid
+
+
+3. result = x
+
+
+
+
+
+
+
+SPECIFICA DELL'OPERAZIONE POPOLARITA'
+
+
+
+SPECIFICA DELLA CLASSE UTENTE
+
+
+
+Ogni istanza di questa classe rapresenta un utente
+
+1.popolarità(i: DataOra): Popolarità: calcolata come: 
+numero di utenti che hanno effettuato bid sulle loro aste negli ultimi 12 mesi + utenti che hanno acquistato post di tipo "CompraloSubito" negli ultimi 12 mesi.
+ Può essere bassa se < 50, media se tra 50 e 300 e alta se > 300.
+
+1.1. l'operazione non modifica il livello estensionale
+
+2.1. il valore del risultato ("result") è definito come segue:
+
+    1.2.1. sia x = numero di utenti che hanno effettuato bid sulle loro aste negli ultimi 12 mesi
+    2.2.1. sia y = numero di utenti che hanno acquistato un post di tipo "CompraloSubito" negli ultimi 12 mesi
+    3.2.1. result = x + y
+
+
+2.affidabilità(i: DataOra): Reale in 0..1: calcolata come:
+			1.6.4.1. Sia m = media artimetica dei feedback ricevuti, sia z = fp/ft (fp = insieme dei feedback positivi e ft = insieme dei feedback totali), affidabilità = m*(1-z)/5 (quindi sempre tra 0 e 1)
+
+ 1.2. l'operazione non modifica il livello estensionale
+
+ 2.2. il valore del risultato ("result") è definito come segue:
+    
+    1.2.2. sia m = media aritmetica dei feedback ricevuti 
+
+    2.2.2. sia fp = l'insieme dei feedback positivi 
+
+    3.2.2. sia ft = l'insieme dei feedback totali
+
+    4.2.2. sia z = il rapporto tra feedback positivi e feedback totali fp / ft
+
+    5.2.2. result = m * (1 - z) / 5
+
+
+
+
+SPECIFICA PREZZO VERSIONE PROF 
+
+
+
+Specifica Asta
+
+
+prezzo(i: DataOra): Reale >= 0
+
+    precondizioni:
+
+    postcondizioni:
+
+        - l'operazione non modifica il livello estensionale dei dati
+        - sia b l'insieme delle istanze b: Bid coinvolte in un link di associazione asta_bid insieme a this "(this, b)" tali da avere b.istante non successivo al valore di i.
+
+        Formalmente:
+
+                    sia B l'insieme delle istanze b: Bid tali che (this, b): asta_bid e b.istante <= i.
+                
+                - sia N il numero di elementi di B (cioè la cardinalità di b, denotata come |b|)
+
+                - result = N * this.prezzo_bid + this.prezzo
+
+    
+
+
+
+
+
+
