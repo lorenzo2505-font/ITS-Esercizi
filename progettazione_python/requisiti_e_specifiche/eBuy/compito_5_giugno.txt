@@ -1,6 +1,9 @@
 SPECIFICA DELLE OPERAZIONI POPOLARITA' E AFFIDABILITA'
 
 
+VERSIONE INFORMALE
+
+
 SPECIFICA DELLA CLASSE UTENTE
 
 ogni istanza di questa classe rappresenta un utente
@@ -13,8 +16,78 @@ popolarità(i: DataOra)
 
 2. il valore del risultato ("result") è definito come segue:
 
-1.2. sia x l'insieme dei link di associazione priv_ou su OggettoUsato nell'ultimo anno 
+1.2. sia x = numero di utenti che hanno effettuato bid sulle loro aste negli ultimi 12 mesi
 
-2.2. y l'insieme dei link di associazione cs_ut su compralo subito nell'ultimo anno
+2.2.  sia y = numero di utenti che hanno acquistato un post di tipo "CompraloSubito" negli ultimi 12 mesi
 
 2.3. result = x + y
+
+
+
+SPECIFICA AFFIDABILITA'
+
+
+affidabilità(i: DataOra): Reale in 0..1:
+
+
+1.l'operazione non modifica il livello estensionale
+
+2. il valore del risultato("result è definito come segue):
+
+    1.2.sia m = media dei feedback ricevuti
+
+    2.2. sia fp = l'insieme dei feedack positivi
+
+    2.3. sia ft = l'insieme dei feedback totali
+
+    2.4. sia z = il rapporto tra feedback positivi e i feedback totali
+
+    2.5. result = m * (1 - z) / 5
+
+
+
+
+
+
+VERSIONE FORMALE
+
+
+
+POPOLARITÀ'
+
+
+
+popolarità(i: DataOra):
+
+
+1. l'operazione non modifica il livello estensionale
+
+2. sia B l'insieme delle istanze b: Bid tali che (this, b): bid_ut negli ultimi 12 mesi rispetto al valore i 
+
+3. sia U1 il numero di utenti che hanno effettuato almeno un bid in B
+
+4. sia C l'insieme delle istanze c: CompraloSubito tali che(this, c) cs_ut negli ultimi 12 mesi rispetto al valore i
+
+5. sia U2 il numero di utenti che hanno acquistato almeno un post in C
+
+6. result = U1 + U2
+
+
+
+
+AFFIDABILITA' 
+
+affidabilità(i: DataOra): Reale in 0..1
+
+
+
+1. l'operazione non modifica il livello estensionale
+
+2. sia m = media i F l'insieme delle istanze f: PostConFeedback con pubblicazione non successiva al valore i
+
+
+
+
+
+
+
