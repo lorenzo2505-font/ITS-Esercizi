@@ -75,15 +75,7 @@ popolarità(i: DataOra):
 
 
 
-AFFIDABILITA' 
 
-affidabilità(i: DataOra): Reale in 0..1
-
-
-
-1. l'operazione non modifica il livello estensionale
-
-2. sia m = media i F l'insieme delle istanze f: PostConFeedback con pubblicazione non successiva al valore i
 
 
 
