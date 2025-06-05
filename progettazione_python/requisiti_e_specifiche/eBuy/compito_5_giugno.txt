@@ -86,7 +86,7 @@ l'istante i: dataorea deve essere successivo alla registrazione
 deve essere presente un link di associazione pubblica o priv_ou tra this e il post
 
 
-deve esserci almeno un valore di fn
+si FT l'insieme totale di feedback che partecipano a un link di associazione (this, PostConFeedback) pubblica o (this, PostConFeedback), l'insieme deve avere almeno un valore
 
 
 
@@ -96,7 +96,7 @@ deve esserci almeno un valore di fn
 
 2.sia FN l'insieme l'insieme di oggetti p: PostConFeedback che partecipano  a un link di asscociazione (this, p): pubblica o (this, p): priv_ou
 
-3.si FT l'insieme totale di feedback che partecipano a un link di associazione (this, PostConFeedback) pubblica o (this, PostConFeedback)
+3.si FT l'insieme totale di feedback che partecipano a un link di associazione (this, PostConFeedback) pubblica o (this, PostConFeedback) con valore dell'attributo <= 2
 
 4. sia m la media aritmetica di tutti i PostConFeedback di tutti i feedback in FT
 
@@ -104,6 +104,45 @@ deve esserci almeno un valore di fn
 5. sia z = FN/FT il rapporto tra feedback negativi e feedback totali
 
 6. result = m *(1-z) / 5
+
+
+
+VERSIONE PROF AFFIDABILITA
+
+precondizioni: 
+    -sia PF l'insieme dei pf: PostConFeedback tali che sono coinvolti nel link di associazione pubblica oppure priv_ou e che hanno pf.istante <= i. PF deve avere almeno un elemento
+
+postcondizioni:
+        -L'operazione non modifica il livello estensionale
+        -sia S la somma dei pf.voto tali che pf in PF
+        -sia FT la cardinalità di PF
+        -m = S/FT
+        -Sia PFN l'insieme dei pf in PF tali che pf.voto <= 2.
+        -z = FN/FT
+        -result = m*(1-z)/5
+
+
+
+VERSIONE PROF POPOLARITA'
+
+popolarità(i: DataOra): popolarità
+
+precondizioni:
+
+
+postcondizioni:
+
+-sia P l'insieme dei post pubblicati da this, formalmente:
+    tutti i p:PostOgetto che partecipano a pubblica o priv_ou insieme a this
+
+-sia ucs l'insieme degli u: Privato tali che partecipano a cs_ut insieme agli p in P dove l'istante di cs_ut compreso tra i - 12 e i.
+
+-sia Ua l'insieme degli u: Privato, sia b: Bid tale che (b,u): bid_ut, deve essere che (b, u): bid_ut, deve essere che (b, p): asta_bid dove p in P e i -12 <= b.istante <= i.
+
+-result = |ucs| + |ua|
+
+
+
 
 
 
