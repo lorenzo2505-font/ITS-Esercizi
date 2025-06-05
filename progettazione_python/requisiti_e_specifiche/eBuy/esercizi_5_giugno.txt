@@ -1,0 +1,13 @@
+CLASSE ASTA
+
+
+ultimo_bid()
+
+
+1.l'operazione non moodifica il livello estensionale
+
+2.sia B l'insieme delle istanze b: Bid tali che (this, b): asta_bid
+
+3. sia final_bid l'istanza di b: Bid con istante più recente in B
+
+4. result = final_bid

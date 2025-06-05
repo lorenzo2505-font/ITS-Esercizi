@@ -36,11 +36,11 @@ affidabilità(i: DataOra): Reale in 0..1:
 
     1.2.sia m = media dei feedback ricevuti
 
-    2.2. sia fp = l'insieme dei feedack positivi
+    2.2. sia fp = l'insieme dei feedack  (negativi)
 
     2.3. sia ft = l'insieme dei feedback totali
 
-    2.4. sia z = il rapporto tra feedback positivi e i feedback totali
+    2.4. sia z = il rapporto tra feedback (negativi) e i feedback totali
 
     2.5. result = m * (1 - z) / 5
 
@@ -73,6 +73,37 @@ popolarità(i: DataOra):
 6. result = U1 + U2
 
 
+
+
+AFFIDABILITA
+
+
+affidabilità(i: DataOra): Reale in 0..1:
+
+
+l'istante i: dataorea deve essere successivo alla registrazione
+
+deve essere presente un link di associazione pubblica o priv_ou tra this e il post
+
+
+deve esserci almeno un valore di fn
+
+
+
+
+1.l'operazione non modifica il livello estensionale
+
+
+2.sia FN l'insieme l'insieme di oggetti p: PostConFeedback che partecipano  a un link di asscociazione (this, p): pubblica o (this, p): priv_ou
+
+3.si FT l'insieme totale di feedback che partecipano a un link di associazione (this, PostConFeedback) pubblica o (this, PostConFeedback)
+
+4. sia m la media aritmetica di tutti i PostConFeedback di tutti i feedback in FT
+
+
+5. sia z = FN/FT il rapporto tra feedback negativi e feedback totali
+
+6. result = m *(1-z) / 5
 
 
 
