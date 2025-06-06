@@ -58,3 +58,15 @@ Raffinamento dei requisiti
 	999.2. Agli utenti deve permettere di proporre bid alle aste oppure acquistare post "Compralo Subito"
 	999.3. Agli utenti vincitori di un'asta o che hanno acquistato un oggetto in modalita "CompraloSubito" deve permettere di lasciare un feedback al post
 
+	999.4. agli utenti vincitori di un'asta o che hanno acquistato un oggetto in modalità comparolo Subito
+
+	999.5. gli amministratori, di creare categoria
+	
+	999.6. gli amministratori, eleminari post offensivi
+
+	999.7. gli amministratori, eliminare gli utenti
+
+	999.8. agli amministratori, aggiungere metodi di pagamenti
+
+	999.9 agli utenti calcolare l'affidabilità
+
