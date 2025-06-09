@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from custom_types import *
 
 
@@ -185,6 +187,8 @@ class Compagnia:
 
     _città: Città # noto alla nascita
 
+    _voli: set [Volo]
+
     
     def __init__(self, nome: str, anno: int, città: Città):
         
@@ -199,6 +203,10 @@ class Compagnia:
             ValueError ("inserire un anno di fondazione prima del 1900")
         
         self.setCittà(città)
+
+        self._voli = set()
+
+        
     
 
     def setNome(self, nome: str):
@@ -215,6 +223,14 @@ class Compagnia:
 
         self._città = città
     
+    def add_voli(self, volo: Volo):
+
+        self._voli.add(volo)
+    
+    def remove_voli(self, volo: Volo):
+
+        self._voli.remove(volo)
+    
     def nome(self):
 
         return self._nome
@@ -226,6 +242,10 @@ class Compagnia:
     def città(self):
 
         return self._città
+    
+    def voli(self) -> frozenset[Volo]:
+
+        return frozenset[self._voli]
     
     def __str__(self):
         
@@ -277,7 +297,9 @@ class Volo:
 
         self._aereoportoPartenza = aereoportoPartenza
 
-        self.setAereoportoArrivo(self)
+        self.setAereoportoArrivo(aereoportoArrivo)
+
+        compagnia.add_voli(self)
     
     def setDurata(self, durata_min: int):
 

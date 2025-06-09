@@ -261,4 +261,30 @@ class CodiceAereoporto (str):
         else:
 
             raise ValueError("inserire un codice di volo valido")
+
+class IntGEZ(int):
+
+    def __new__(cls, v: float|int|str|bool|Self) -> Self:
+
+        n: int = super().__new__(cls, v)
+
+        if n >= 0:
+
+            return n
         
+        raise ValueError(f"il valore {n} è minore di 0")
+        
+
+
+
+class IntGZ (int):
+
+    def __new__(cls, v: float|int|str|bool|Self) -> Self:
+
+        n: int = super().__new__(cls, v)
+
+        if n > 0:
+
+            return n
+
+        raise ValueError(f"il valore {n} non è positivo")
