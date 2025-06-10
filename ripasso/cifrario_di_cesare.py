@@ -159,7 +159,29 @@ d = caesar_cypher_decrypt(e, 3)
 
 print(d)
 
-                
+
+# versione prof
+
+
+
+def cesare(x, k):
+
+    l = ""
+
+    for c in x:
+
+
+        idx = ascii_lowercase.index(c)
+
+        new_idx = (idx + k) % 26 
+
+        new_char = ascii_lowercase[new_idx] 
+
+        l += new_char
+
+
+
+
 
 
 
