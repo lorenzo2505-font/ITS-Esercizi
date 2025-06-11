@@ -30,27 +30,40 @@ merge_intervals(intervals) # restituisce [[1, 6], [8, 10], [15,
 intervals = [[1, 4], [4, 5]]
 merge_intervals(intervals) # restituisce [[1, 5]]'''
 
-import math
+
 
 
 
 def merge_intervals(intervals: list [list[int]]):
 
-    intervals = sorted(intervals)
+
+    if intervals == []:
+
+        return intervals
+    
+    elif len(intervals) == 1:
+
+        return intervals
+    
+
+    mylist: list[list[int]] = [intervals[0]]
 
     
-    for i in range (len(intervals)):
+    for i in range(1, len(intervals)):
 
-        j = i + 1
+        if intervals[i][0] <= mylist[-1][1]:
 
-        if (len(intervals[i]) != 2) or (intervals[i][0] > intervals[i][1]):
-
-            raise Exception("ogni elemento deve avere due elementi con il primo minore del secondo")
+            mylist[0][-1] = intervals[i][1]
         
-        
-        if intervals[i][1] in range(intervals[j][0], intervals[j][0]):
+        else:
 
-            return True
+            mylist.append(intervals[i])
+    
+    return mylist
+
+    
+        
+
     
     
     

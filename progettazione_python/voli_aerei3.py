@@ -5,6 +5,9 @@ from custom_types import *
 
 
 
+
+
+
 class Nazione:
 
     _nome: str # noto alla nascita
@@ -187,7 +190,7 @@ class Compagnia:
 
     _città: Città # noto alla nascita
 
-    _voli: set [Volo]
+    _voli: set [volo_comp]
 
     
     def __init__(self, nome: str, anno: int, città: Città):
@@ -276,7 +279,7 @@ class Volo:
 
     _codice: CodiceVolo # <<immutable>>, noto alla nascita
 
-    _compagnia: Compagnia # <<immutable>>, noto alla nascita
+    _compagnia: volo_comp # <<immutable>>, noto alla nascita
 
     _aereoportoPartenza: Aereoporto # <<immutable>>, noto alla nascita
 
@@ -378,6 +381,44 @@ aArrivo: Aereoporto = Aereoporto ("aereporto di milano", cod3, milano)
 v: Volo = Volo (60, cod2, comp, a, aArrivo)
 
 print(v)'''
+
+
+class volo_comp:
+
+    '''gli oggetti di questa classe rappresentano link di associazione volo-comp'''
+
+    _volo: Volo
+
+    _compagnia: Compagnia
+
+
+    def __init__(self, v: Volo, c: Compagnia):
+
+        self._volo = v
+
+        self._compagnia = c
+    
+    def volo(self) -> Volo:
+
+        return self._volo
+    
+    def compagnia(self) -> Compagnia:
+
+        return self._compagnia
+    
+    def __hash__(self) -> int:
+        
+
+        return hash((self._volo, self._compagnia))
+    
+    def __eq__(self, other: Any) -> bool:
+
+        
+        if type(self) != type(other) or hash(self) != hash(other):
+
+            return False
+        
+        return self.volo() is other.volo() and self.compagnia() is other.compagnia()
 
 
 
