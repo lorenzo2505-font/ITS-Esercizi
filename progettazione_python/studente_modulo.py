@@ -75,6 +75,7 @@ class Modulo:
 
     def __repr__(self) -> str:
         return f"Modulo({self.codice()})"
+    
 
 class _esame:
     _studente: Studente
