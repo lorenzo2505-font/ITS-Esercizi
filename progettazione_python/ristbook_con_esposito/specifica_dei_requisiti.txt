@@ -1,0 +1,79 @@
+SPECIFICA DEI REQUISITI 
+
+
+
+1.Cliente:
+
+    1.1.nome: Stringa
+
+    1.2.email: Email
+
+
+2.Ristorante:
+
+    2.1.nome: Stringa
+
+    2.2.iva: IVA
+
+    2.3.indirizzo: Indirizzo
+
+    2.4.Città(vedi requisito 100)
+
+    2.5.cucine_offerte: (vedi requisto 3)
+
+
+3.TipoCucina:
+
+    3.1.nome: Stringa
+
+
+4.Prenotazione:
+
+    4.1.giorno: Data
+
+    4.2.ora: DataOra
+
+    4.3.clienti (vedi requisti 1) # possibile operazione, calcolabile
+
+    4.4. stato: {rifiutata, confermata, pendente, non_utilizzata}
+
+
+5.Promozione:
+
+    5.1.sconto: Reale in 0..1
+
+    5.2.periodo_promozione:
+        5.2.1. data_inizio(DataOra)
+
+        5.2.2. data_fine(DataOra)
+
+    5.3. per qualsiasi giorno della settimana:
+
+        5.3.1.per qualsiasi numero di fascia oraria in cui è valida
+
+            5.3.1.1. data_inizio: DataOra
+
+            5.3.1.2. data_ora: DataOra
+
+    5.4.coperti: Intero
+
+    5.5.validità: #operazione, calcolabile
+
+
+
+
+100.Città:
+
+    100.1:nome: Stringa
+
+    100.2:nazione(vedi requisito 101)
+
+
+
+101.Nazione:
+
+    101.1:nome: Stringa
+
+
+
+    
