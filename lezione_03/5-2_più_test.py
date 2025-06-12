@@ -12,10 +12,15 @@ di, maggiore o uguale a e minore o uguale a
 • Verificare se un elemento non è presente in un elenco'''
 
 assigment: bool
+
 parola = str(input("inserisci parola: "))
+
 if parola[0] == parola[-1]:
+
     print("la parola inizia e finisce con la stessa lettera")
+
     assigment = True
+    
     print(assigment)
 else:
     print("la parola NON inizia e finisce con la stessa lettera")

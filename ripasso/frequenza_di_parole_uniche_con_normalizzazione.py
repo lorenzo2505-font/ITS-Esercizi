@@ -19,3 +19,48 @@ Esempio:
 text = "Hello, world! Hello... PYTHON? world."
 output = count_unique_words(text)
 ● # output == {'hello': 2, 'world': 2, 'python': 1}'''
+
+import string
+
+
+
+
+
+def count_unique_words(text: str):
+
+    speciali = string.punctuation
+
+
+    text = text.lower()
+
+
+
+    mydict: dict = {}
+
+
+    for i in text.split(" "):
+
+        i = i.strip("!',.;:?")
+
+
+
+        mydict[i] = text.count(i)
+    
+    
+    return mydict
+    
+    
+
+
+
+        
+test = count_unique_words("Hello, world! Hello... PYTHON? world.")
+
+
+print(test)
+
+
+
+
+
+        

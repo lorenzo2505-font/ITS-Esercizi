@@ -11,15 +11,21 @@ età: int = 65
 
 if età >= 0 and età < 2:
     print("neonato")
+
 elif (età >= 2) and (età < 4):
     print("bambino")
+
 elif (età >= 4) and (età < 13):
     print("bambino")
+
 elif (età >= 13) and (età < 20):
     print("adolescente")
+
 elif (età >= 20) and (età < 65):
     print("maggiorenne")
+
 elif età < 0:
     print("ma non sei nenache nato")
+    
 else:
     print("anziano")

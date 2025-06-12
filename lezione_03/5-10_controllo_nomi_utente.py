@@ -14,6 +14,7 @@ current_user: list[str] = ["LORENZO", "thommy_marchio", "bozzo", "giumi_cassino"
 new_user: list[str] = ["BOZZO", "bald_erald", "red_dioni", "rossi_bennington", "raponi_chad"]
 
 for i in range(len(new_user)):
+    
     if (new_user[0:i] == current_user[0:i]) or (new_user[0:i] == current_user[i].title()) or (new_user[0:i] == current_user[i].upper()) or (new_user[0:i] == current_user[i].lower()): 
             print("inserisci di nuovo il nome  utente")
     else:

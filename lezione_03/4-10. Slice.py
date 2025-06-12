@@ -5,9 +5,13 @@ operazioni:
 • Stampa il messaggio Gli ultimi tre elementi dell'elenco sono:. Quindi utilizzare una sezione per stampare gli ultimi tre elementi dell'elenco.'''
 
 cubes: list[int] = []
+
 for i in range(1, 10+1):
+
     i = i**3
+
     cubes.append(i)
+    
 print(cubes)
 
 print(f"i primi tre elementi dell'elenco sono {cubes[0:3]}")

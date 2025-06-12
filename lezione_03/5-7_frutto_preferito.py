@@ -8,11 +8,15 @@ frutti_preferiti: list[str] = ["mela", "pesca", "arancia"]
 
 if "mela" in frutti_preferiti:
     print("vedo che ti piacciono le mele")
+
 if "pesca" in frutti_preferiti:
     print("sono buone sopratutto le percoche")
+
 if "arancia" in frutti_preferiti:
     print("quelle sono buone in inverno")
+
 if "melone" in frutti_preferiti:
     print("quello è buono in estate")
+    
 if "fragola" in frutti_preferiti:
     print("quella è buona in primavera")

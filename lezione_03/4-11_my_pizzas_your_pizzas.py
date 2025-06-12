@@ -9,10 +9,17 @@ quindi utilizza un ciclo for per stampare il primo elenco.
  Assicurati che ogni nuova pizza sia memorizzata nell'elenco appropriato.'''
 
 pizzas: list[str] = ["Margherita", "Patate", "Diavola"]
+
 pizzas.append("Rossa")
+
 friend_pizzas: list[str] = ["Margherita", "Patate", "Diavola"]
+
 friend_pizzas.append("Patate E Salsicce")
+
 for i in range(0, len(pizzas)):
+
     print(f"le mie pizze preferite: {pizzas[i]}")
+
 for i in range(0, len(friend_pizzas)):
+    
     print(f"le pizze preferite del mio amico: {friend_pizzas[i]}")
