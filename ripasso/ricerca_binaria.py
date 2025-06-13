@@ -9,7 +9,7 @@ e ritorna True se il numero è all’interno del della lista, altrimenti False.'
 
 
 
-def bin_search(mylist: list [int], n: int):
+'''def bin_search(mylist: list [int], n: int):
 
 
     orderedList: list [int] = sorted(mylist)
@@ -64,7 +64,7 @@ def bin_search(mylist: list [int], n: int):
         
         if tentativi == len(orderedList):
 
-            return False
+            return False'''
 
 
                     
@@ -76,10 +76,10 @@ def bin_search(mylist: list [int], n: int):
 
 
 
-test = bin_search([1, 2, 3, 4], 4)
+#test = bin_search([1, 2, 3, 4], 4)
 
 
-print(test)
+#print(test)
 
 
 
@@ -106,18 +106,22 @@ def binSearchProf(x: list [int], y: int):
 
         print("numero trovato")
 
+        return True
+
     elif x[mid] > y:
 
         j = mid 
 
 
-        binSearchProf(x[i:j], y)
+        return binSearchProf(x[i:j], y)
     
     else:
 
         i = mid + 1
 
-        binSearchProf(x[i: j], y)
+        return binSearchProf(x[i: j], y)
+    
+    
 
 
 
