@@ -40,7 +40,7 @@ def is_valid_ipv4(adress: str ) -> bool:
 
         for i in adress.split("."):
 
-            if (i.isdigit() == True) and (0 <= int(i) <= 255) :
+            if (i.isdigit()) and (0 <= int(i) <= 255) :
 
                 intervalliGiusti += 1
     
@@ -63,6 +63,40 @@ def is_valid_ipv4(adress: str ) -> bool:
 test = is_valid_ipv4("192.168.0.1")
 
 print(test)
+
+
+
+
+
+
+
+
+# versione prof
+
+
+def chekIP(ip: str) -> bool:
+
+    ip = ip.split(".")
+
+    if len(ip) != 4:
+
+        #raise Exception("indirizzo mal formato")
+
+        return False
+    
+    for blocco in ip:
+
+        if not blocco.isdigit():
+
+            #raise Exception("errore, l'indirizzo contiene un carattere alfabetico")
+
+            return False
+        
+        if not (0 <= int(blocco) <= 255):
+
+            return False
+    
+    return True
 
 
     

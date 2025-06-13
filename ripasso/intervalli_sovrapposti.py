@@ -36,6 +36,8 @@ merge_intervals(intervals) # restituisce [[1, 5]]'''
 
 def merge_intervals(intervals: list [list[int]]):
 
+    intervals = sorted(intervals)
+
 
     if intervals == []:
 

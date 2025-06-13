@@ -20,7 +20,8 @@ text = "Hello, world! Hello... PYTHON? world."
 output = count_unique_words(text)
 ● # output == {'hello': 2, 'world': 2, 'python': 1}'''
 
-import string
+
+from string import punctuation
 
 
 
@@ -28,7 +29,7 @@ import string
 
 def count_unique_words(text: str):
 
-    speciali = string.punctuation
+    
 
 
     text = text.lower()
@@ -40,7 +41,7 @@ def count_unique_words(text: str):
 
     for i in text.split(" "):
 
-        i = i.strip("!',.;:?")
+        i = i.strip(punctuation)
 
 
 
@@ -58,6 +59,37 @@ test = count_unique_words("Hello, world! Hello... PYTHON? world.")
 
 
 print(test)
+
+
+
+# versione prof
+
+
+
+def countProf(text: str) -> dict[str, int]:
+
+    text = text.lower()
+
+    tokens: list[str] = text.split(" ")
+
+    d: dict[str, int] = {}
+
+    for token in tokens:
+
+        token = token.strip(punctuation)
+
+        if not token:
+
+            continue
+
+        if token not in d:
+
+            d[token] = 1
+        
+        else:
+
+            d[token] += 1
+
 
 
 

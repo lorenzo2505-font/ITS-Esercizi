@@ -36,7 +36,7 @@ def fattorialeRicorsivo(n):
 
 
 
-ric = fattorialeRicorsivo(5)
+ric = fattorialeRicorsivo(3)
 
 print(ric)
 

@@ -88,3 +88,30 @@ print(secondTest)
 
 
 
+
+# versione prof
+
+
+
+
+
+def matrixProf(x: list[list[int]]):
+
+    somma = 0
+
+    somma2 = 0
+
+    for i in range(len(x)):
+
+        somma += x[i][i]
+
+
+        somma2 += x[i] [len(x) -1 - i]
+
+
+    return somma, somma2
+
+
+
+
+
