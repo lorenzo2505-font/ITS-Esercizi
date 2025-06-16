@@ -78,6 +78,15 @@ Usando il metodo value(), dimostrare che il valore di ogni funzione di entrambe 
 Esempio:
 
     Valore frazione originale: 0.538 --- Valore frazione ridotta: 0.538'''
+
+
+'''
+8.E Scrivere un codice Python che inizializzi la seguente lista l di frazioni, dove ogni frazione è un oggetto della classe Frazione:
+ 
+l = 2.5/0,   1/2,   2/4,   3/5,   6/9,   4/7,   24/36,   12/36,   40/60,   5/11,   10/45,   42/78,   9/15
+       
+Sfruttando la funzione semplifica, generare una nuova lista chiamata l_s, contente una versione semplificata delle frazioni della lista l.
+Infine, richiamando la funzione fractionCompare, dimostrare che le funzioni delle lista l e l_s sono equivalenti, ovvero hanno lo stesso valore.'''
    
 
 
@@ -85,7 +94,7 @@ Esempio:
 
 class Frazione:
 
-    def __init__(self, numeratore: int, denominatore: int):
+    def __init__(self, numeratore, denominatore):
 
 
         self.setNumeratore(numeratore)
@@ -142,7 +151,7 @@ class Frazione:
 
 
 
-f: Frazione = Frazione(10, 9)
+#f: Frazione = Frazione(10, 9)
 
 
 #print(f.value())
@@ -209,7 +218,7 @@ def mcd(x: int, y: int):
 
 
 
-test = mcd(12, 18)
+#test = mcd(12, 18)
 
 
 #print(test)
@@ -237,11 +246,15 @@ def semplifica(mylist: list[Frazione]) -> list[Frazione]:
 
             d = i.getDenominatore()
 
-            while mcd(n, d) != 1:
+            m = mcd(n, d)
 
-                n //=mcd(n, d)
+            while m != 1:
 
-                d //=mcd(n, d)
+                n //=m
+
+                d //=m
+
+                m = mcd(n, d)
             
             i.setNumeratore(n)
 
@@ -254,25 +267,46 @@ def semplifica(mylist: list[Frazione]) -> list[Frazione]:
 
 
 
-marco: Frazione = Frazione(6, 4)
+#marco: Frazione = Frazione(6, 4)
 
-matteo: Frazione = Frazione(10, 5)
-
-
-
-lista: list[Frazione]= [marco, matteo]
+#matteo: Frazione = Frazione(10, 5)
 
 
 
-prova = semplifica(lista)
+#lista: list[Frazione]= [marco, matteo]
 
-print(prova)
+
+
+#prova = semplifica(lista)
+
+#print(prova)
 
 
 
 def fractionCompare(original_list:list[Frazione], s_list: list[Frazione]):
-    pass
 
+
+    for i in range(len(original_list)):
+
+        print(f"valore frazione originale: {original_list[i].value()}, valore frazione semplificata: {s_list[i].value()}")
+
+
+
+#fractionCompare(lista, prova)
+
+
+
+l: list[Frazione] = [Frazione(2.5, 0), Frazione(1, 2), Frazione(3, 5), Frazione(6, 9), Frazione(4, 7),  Frazione(24, 36), Frazione(12, 36), Frazione(40, 60), Frazione(5, 11), Frazione(10, 45), Frazione(42, 78), Frazione(12, 5)]
+
+
+
+l_s = semplifica(l)
+
+print(l_s)
+    
+
+
+    
     
         
 
