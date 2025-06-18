@@ -1,4 +1,4 @@
-
+from typing import Any
 
 
 import random
@@ -211,8 +211,10 @@ def combattimento(a: Alieno, m: Mostro):
         
         if conta_valore > 4:
 
-            for i in range(3 + 1):
+            for i in range(3):
                 print(m.getVittoria())
+
+                return m
             
             
         
@@ -221,6 +223,8 @@ def combattimento(a: Alieno, m: Mostro):
             
 
             print(m.getSconfitta())
+
+            return a
             
             
         
@@ -236,18 +240,32 @@ def combattimento(a: Alieno, m: Mostro):
 def proclamaVincitore(c: Creatura):
 
 
-    print("***********************"
-    
-    "*                           *" \
-    "*                            *" \
-    "*" \
-    "    *************************")
 
-    print(f"*************************"
+
+    print(f"***********************"
         f"*                       *"
         f"*      {c.getNome()}    *"
         f"*                       *"
-        )
+        f"*************************")
+
+
+
+
+a: Alieno = Alieno("Robot-12345")
+
+m: Mostro = Mostro("godzilla", "GAAHHHH", "uhhrg")
+
+
+p = pariUguali(a.getMunizioni(), m.getAssalto())
+
+print(p)
+
+c = combattimento(a, m)
+
+print(c)
+
+
+vincitore = proclamaVincitore(c)
 
 
 
