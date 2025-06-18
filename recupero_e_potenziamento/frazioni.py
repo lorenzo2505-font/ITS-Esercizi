@@ -94,7 +94,7 @@ Infine, richiamando la funzione fractionCompare, dimostrare che le funzioni dell
 
 class Frazione:
 
-    def __init__(self, numeratore, denominatore):
+    def __init__(self, numeratore: int, denominatore: int):
 
 
         self.setNumeratore(numeratore)
@@ -104,7 +104,7 @@ class Frazione:
 
     def setNumeratore(self, numeratore):
 
-        if numeratore % 1 == 0:
+        if type(numeratore) == int:
 
             self._numeratore = numeratore
         
@@ -116,13 +116,13 @@ class Frazione:
     def setDenominatore(self, denominatore: int):
 
 
-        if denominatore % 1 == 0:
-
-            self._denominatore = denominatore
-        
-        elif (denominatore == 0) or (denominatore % 1 != 0):
+        if denominatore == 0 or type(denominatore) != int:
 
             self._denominatore = 5
+        
+        else:
+
+            self._denominatore = denominatore
     
 
     def getNumeratore(self):
@@ -246,15 +246,15 @@ def semplifica(mylist: list[Frazione]) -> list[Frazione]:
 
             d = i.getDenominatore()
 
-            m = mcd(n, d)
+            
 
-            while m != 1:
+            while t != 1:
 
-                n //=m
+                n //=t
 
-                d //=m
+                d //=t
 
-                m = mcd(n, d)
+                t = mcd(n, d)
             
             i.setNumeratore(n)
 
@@ -267,19 +267,19 @@ def semplifica(mylist: list[Frazione]) -> list[Frazione]:
 
 
 
-#marco: Frazione = Frazione(6, 4)
+'''marco: Frazione = Frazione(6, 4)
 
-#matteo: Frazione = Frazione(10, 5)
-
-
-
-#lista: list[Frazione]= [marco, matteo]
+matteo: Frazione = Frazione(10, 5)
 
 
 
-#prova = semplifica(lista)
+lista: list[Frazione]= [marco, matteo]
 
-#print(prova)
+
+
+prova = semplifica(lista)
+
+print(prova)'''
 
 
 
@@ -296,13 +296,34 @@ def fractionCompare(original_list:list[Frazione], s_list: list[Frazione]):
 
 
 
-l: list[Frazione] = [Frazione(2.5, 0), Frazione(1, 2), Frazione(3, 5), Frazione(6, 9), Frazione(4, 7),  Frazione(24, 36), Frazione(12, 36), Frazione(40, 60), Frazione(5, 11), Frazione(10, 45), Frazione(42, 78), Frazione(12, 5)]
+f1: Frazione = Frazione(2.5, 0)
+
+
+f2: Frazione = Frazione(1, 2)
+
+f3: Frazione = Frazione (2, 4)
+
+f4: Frazione = Frazione(3, 5)
+
+f5: Frazione = Frazione(6, 9)
+
+f6: Frazione = Frazione(4, 7)
+
+f7: Frazione = Frazione(24, 36)
+
+f8: Frazione = Frazione()
+
+print(f4.getNumeratore())
+
+print(f4.getDenominatore())
 
 
 
-l_s = semplifica(l)
 
-print(l_s)
+
+
+
+
     
 
 
