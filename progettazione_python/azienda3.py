@@ -94,8 +94,26 @@ class Impiegato:
 
             raise KeyError(f"l'impiegato {self.nome()} è già coinvolto nel progetto")
         
+        
+        
 
         self._progetti[l.progetto()] = l
+
+    def progetti(self) -> frozenset["coinvolto._link"]:
+
+        return frozenset(self._progetti.values())
+    
+    def is_coinvolto(self, progetto: "Progetto") -> bool:
+
+        return progetto in self._progetti
+    
+    def data_coinvolgimento(self, progetto: "Progetto") -> date:
+
+        if progetto not in self._progetti:
+
+            raise ValueError("l'impiegato non è coinvolto nel progetto")
+        
+        return self._progetti[progetto].data()
 
     def __str__(self) -> str:
         return (f"{self.nome()} {self.cognome()}, "
@@ -270,6 +288,7 @@ class coinvolto:
         l.progetto()._remove_link_coinvolto(l)
 
         l.impiegato()._remove_link_coinvolto(l)
+        
 
         del l
 
