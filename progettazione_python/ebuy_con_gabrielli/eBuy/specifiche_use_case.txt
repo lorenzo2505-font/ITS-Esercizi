@@ -1,0 +1,220 @@
+SPECIFICHE DEI DIAGRAMMI DEGLI USE-CASE 
+
+
+
+USE-CASE 999.1 PUBBLICAZIONE DEL POST 
+
+Attore: Utente
+
+Precondizioni:
+
+-non esiste alcun oggetto della classe utente che non abbia un valore reg per l'attributo registrazione e un valore us per l'attributo username 
+
+Postcondizioni:
+
+-viene creato e restitutito un nuovo oggetto result: PostOgetto con i valori des, p, garanzia, prezzo, per, rispettivamente,
+
+    gli attributi: descrizione, pubblicazione, anni_garanzia, prezzo
+
+-l'oggetto PostOgetto include anche un metodo di pagamnento e una categoria
+
+
+USE-CASE 999.2.1. BID SU ASTA
+
+Attore: Utente
+
+Precondizioni:
+
+-non esiste alcun oggetto della classe utente che non abbia un valore reg per l'attributo registrazione e un valore us per l'attributo username 
+
+-non vi è un link di associazione tra (u, p) "pubblica" con l'asta a cui fa il Bid
+
+- 
+
+PostCondizioni:
+
+-viene creato e restitutito un nuovo ogetto result: Bid con il valore i successivo a "p" per l'attributo pubblicazione della classe PostOgetto, 
+
+    per il rispettivo attributo istante
+
+
+USE-CASE 999.2.2. Acquista ogetto
+
+
+Attore: Utente
+
+Precondizioni:
+
+
+-non esiste alcun oggetto della classe utente che non abbia un valore reg per l'attributo registrazione e un valore us per l'attributo username 
+
+-non vi è un link di associazione tra (u, p) "pubblica" con l'oggetto che vuole acquistare 
+
+-(u, c) non è (già) un link di associazione cs_ut
+
+
+Postcondizioni:
+
+-viene creato un link di associazione -(u, c) cs_ut con istante successivo alla pubblicazione dell'oggetto della classe PostOgetto
+
+
+
+
+USE-CASE 999.3 Rilascia Feedback 
+
+Attore: Utente
+
+Precondizioni: 
+
+-non esiste alcun oggetto della classe utente che non abbia un valore reg per l'attributo registrazione e un valore us per l'attributo username 
+
+-non vi è un link di associazione tra (u, p) "pubblica" con il post a cui vuole rilasciare un feedback
+
+- deve esserci un link di associazione (u,c) cs_ut se il post è un oggetto della clase CompraloSubito oppure 
+    se l'utente è vincitore di un'asta deve esserci un'ogetto della classe Asta con operazione vincitore() che restituisca l'ogetto this.utente
+
+
+Postcondizioni:
+
+
+-viene creato e restituito un nuovo ogetto result: PostConFeedback con un voto, commento e istante successivo alla pubblicazione e all'acquisizione dell'oggetto 
+
+
+
+
+USE-CASE 999.4 registrazione 
+
+attore: Utente
+
+Precondizioni: 
+
+-non esiste alcun oggetto della classe utente che abbia un valore this.reg per l'attributo registrazione e un valore this.us per l'attributo username 
+
+
+Postcondizioni:
+
+- viene creato e restituito un nuovo oggetto result: Utente con i valori reg e us per gli attributi registrazione e username 
+
+
+USE-CASE 999.5 Categoria
+
+attore: Amministratore
+
+
+Precondizioni: 
+
+-non devono esserci altri oggetti della classe categoria con nome uguale a this.categoria.nome
+
+
+Postcondizioni:
+
+-viene creato un nuovo oggetto della classe categoria con un nome 
+
+
+USE-CASE 999.6 Eliminazione Post
+
+Attore: Amministratore
+
+Precondizioni:
+
+-deve esservi un ogetto della classe PostOgetto con valori della pubblicazione, descrizione, anni di garanzia e prezzo uguali al post che si vuole
+
+    eliminare
+
+
+Postcondizioni:
+
+-viene eliminato un oggetto della classe: PostOggetto
+
+-vengono eliminate tutte le associazioni collegate all'oggetto della classe PostOggetto 
+
+
+
+USE-CASE 999.7 Eliminazione Utente
+
+Attore: Amministratore
+
+Precondizioni:
+
+- deve esservi un oggetto della classe Utente con username uguale al this.utente che si vuole eliminare
+
+
+PostCondizioni:
+
+-viene eliminato un oggetto della classe: Utente
+
+-vengono eliminate tutte le associazioni collegate all'oggetto della classe: Utente
+
+
+
+USE-CASE 999.8 Aggiunta di un nuovo metodo di pagamnento
+
+Attore: Amministratore
+
+
+Precondizioni:
+
+-non devono esserci altri oggetti della classe MetodoDiPagamento con attributo nome uguale a this.categoria.nome
+
+PostCondizioni:
+
+-viene creato un nuovo ogetto della classe MetodoDiPagamento con l'attributo nome 
+
+
+
+USE-CASE 999.9.1. Popolarità
+
+Attore: Utente
+
+
+Precondizioni:
+
+- non esiste alcun oggetto della classe utente che non abbia un valore reg per l'attributo registrazione e un valore us per l'attributo username 
+
+Postcondizioni:
+
+- viene invocata l'operazione di classe Utente.Popolarità con valore i successivo alla registrazione 
+
+
+
+
+
+USE-CASE 999.9.2 Affididabilità
+
+
+Attore: Utente
+
+
+Precondizioni:
+
+- non esiste alcun oggetto della classe utente che non abbia un valore reg per l'attributo registrazione e un valore us per l'attributo username 
+
+Postcondizioni:
+
+- viene invocata l'operazione di classe Utente.Affididabilità con valore i successivo alla registrazione 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
