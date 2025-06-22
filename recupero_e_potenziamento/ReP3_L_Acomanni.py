@@ -284,21 +284,7 @@ def proclamaVincitore(c: Creatura):
 
 
 
-#a: Alieno = Alieno("Robot-12345")
 
-#m: Mostro = Mostro("godzilla", "GAAHHHH", "uhhrg")
-
-
-#p = pariUguali(a.getMunizioni(), m.getAssalto())
-
-#print(p)
-
-#c = combattimento(a, m)
-
-#print(c)
-
-
-#vincitore = proclamaVincitore(c)
 
 
 

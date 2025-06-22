@@ -166,6 +166,79 @@ class Impiegato(Persona):
 
             raise ValueError("inserire un ruolo valido")
     
+    def setIsResponsabile(self, is_responsabile: bool|None):
+
+        if self._ruolo != Ruolo.progettista:
+
+            self._is_responsabile == None
+        
+        else:
+
+            self._is_responsabile = is_responsabile
+    
+
+
+class PosizioneMilitare:
+
+    _nome: str # noto alla nascita
+
+
+    def __init__(self, nome: str):
+        
+        self.setNome(nome)
+    
+
+    def nome(self):
+
+        return self._nome
+    
+    def setNome(self, nome: str):
+
+        if nome != "assolto" or nome != "esente" or nome != "dispensato":
+
+            raise ValueError("inserire una posizione valida")
+        
+        else:
+
+            self._nome = nome
+
+
+
+class Progetto:
+
+    _nome: str # noto alla nascita
+
+
+    def __init__(self, nome: str):
+        
+        self.setNome(nome)
+    
+
+    def nome(self):
+
+        return self._nome
+    
+    def setNome(self, nome: str):
+
+        if nome:
+
+            self._nome = nome
+        
+        else:
+
+            return ValueError("inserire un nome valido")
+
+
+
+
+
+
+
+
+
+
+
+    
     
         
 
