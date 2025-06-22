@@ -240,32 +240,65 @@ def combattimento(a: Alieno, m: Mostro):
 def proclamaVincitore(c: Creatura):
 
 
+    altezza = 5
+
+    base = len(c.__str__()) + 10
+
+    for i in range(altezza):
+
+        for j in range(base):
+
+            
+
+            if i == 0 or i == altezza - 1:
+
+                print("*", end = " ")
+            
+            elif j == 0 or j == base -1:
+
+                print("*", end = " ")
+
+            
+            
+            else:
+
+                if i == altezza // 2 and j == base // 2:
+
+                    print(c, end = " ")
+
+                else:
+
+                    print(" ", end = " ")
+            
+            
+                
+        
+
+        print()
+    
+    
+    
 
 
-    print(f"***********************"
-        f"*                       *"
-        f"*      {c.getNome()}    *"
-        f"*                       *"
-        f"*************************")
 
 
 
 
-a: Alieno = Alieno("Robot-12345")
+#a: Alieno = Alieno("Robot-12345")
 
-m: Mostro = Mostro("godzilla", "GAAHHHH", "uhhrg")
-
-
-p = pariUguali(a.getMunizioni(), m.getAssalto())
-
-print(p)
-
-c = combattimento(a, m)
-
-print(c)
+#m: Mostro = Mostro("godzilla", "GAAHHHH", "uhhrg")
 
 
-vincitore = proclamaVincitore(c)
+#p = pariUguali(a.getMunizioni(), m.getAssalto())
+
+#print(p)
+
+#c = combattimento(a, m)
+
+#print(c)
+
+
+#vincitore = proclamaVincitore(c)
 
 
 

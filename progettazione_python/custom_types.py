@@ -288,3 +288,13 @@ class IntGZ (int):
             return n
 
         raise ValueError(f"il valore {n} non è positivo")
+
+
+
+class Ruolo():
+
+    segretario = auto()
+
+    direttore = auto()
+
+    progettista = auto()
