@@ -1,0 +1,136 @@
+
+
+
+SPECIFICA DELLO USE CASE STRUMENTI REGISTRAZIONE
+
+
+
+registra_venditore(username: Stringa, url: URL): VenditoreProfessionale
+
+    precondizioni:
+
+            -non esiste v: VenditoreProf taler che v.username = username oppure v.vetrina = url
+    
+    postcondizioni:
+
+        -crea e restituisce un oggetto v di classe VenditoreProf(v: VenditoreProf):
+
+            -v.username = u
+            -v.vetrina = url
+
+
+registra_privato(username: Stringa): registra_privato
+
+    precondizioni:
+
+            -non esiste p: Privato tale che u.username = username
+    
+    postcondizioni:
+
+            -crea e restituisce un oggetto p di classe Privato(p: Privato):
+
+                    p.username = username
+                    p.registrazione = adesso
+
+
+
+
+
+SPECIFICA DELLE USE CASE STATISTICHE VENDITORI 
+
+calcola_affidabilità(u: Utente): Reale in 0..1
+
+    precondizioni:
+        le stesse di u.affidabilità(.)
+    postcondizioni:
+
+        result è il valore restitituito da u.calcola_affidabilità(adesso)
+
+
+calcola_popolarità(u: Utente): Popolarità 
+
+    precondizioni: nessuna 
+
+    postcondizioni:
+
+        result è il valore restituito da u.poplarità(adesso)
+
+
+
+
+
+SPECIFICA DELLA CLASSE STRUMENTI ACQUISTO
+
+
+acquista_compralosubito(cs: CompraloSubito)
+
+    precondizioni:
+
+        -non esiste un link cs_ut che coinvolge un qualsiasi u: Privato e cs
+
+    postcondizioni:
+
+        -crea il link cs_ut che coinvolge l'attore che invoca l'operazione(u) e cs, 
+        
+        con (cs, u).istante = adesso.
+
+
+
+nuovo_bid(a: Asta):
+
+    precondizioni:
+        -a.conclusa deve restituire false
+        - non esiste un b: Bid tale che (a, b): asta_bid e  b.istante == adesso
+    
+    postcondizioni:
+
+    -sia p: Privato l'oggetto associato all'attore che invoca l'operazione
+     
+     -crea b: Bid tale che b.istante = adesso
+
+     -crea (a, b): asta_bid.
+
+     -crea (b, p): bid_ut
+
+        result = b 
+
+
+lascia_feedback(po: PostOggetto, voto: 0..5, commento: stringa [0..1]): PostConFeedback
+
+    precondizioni:
+
+        se po è istanza della classe Asta:
+
+            -il valore di ritorno p.vincitore() è uguale all'oggetto associato 
+            all'attore che invoca all'operazione
+        
+        se po è istanza della classe CompraloSubito:
+
+            -sia p: Privato l'oggetto associato all'attore che invoca l'operazione,
+            deve esistere (po, p): cs_ut.
+    
+    postcondizioni:
+
+        -po diventa istanza di PostConFeedback
+        -po.voto = voto
+        -po.commento = commento (se valorizzato)
+        -po.istante = adesso
+        -result = po
+
+
+
+
+    
+    postcondizioni:
+
+        -crea e restituisce un oggetto della classe f di PostConFeedback:
+
+            -f.voto = voto
+            -f.commento = commento
+            -f.istante = adesso
+
+
+
+
+
+
