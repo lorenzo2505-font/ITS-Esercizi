@@ -6,19 +6,17 @@ insieme_hotel_e_recensioni() (Hotel, Reale) [0..*]:
 
     precondizioni:
 
-        -non deve esistere un link 
+        
 
     postocondizioni:
 
-        -sia H l'insieme degli oggetti h: Hotel che partecipano ad almeno link di associazione (h, p): recensione
+        -sia H l'insieme degli oggetti h: Hotel che partecipano ad almeno link di associazione recensione
 
-        -per ogni h: Hotel sia s la somma del valore dell'attributo voto di tutti i suoi link recensione
+        -per ogni h: Hotel in H sia S, l'insiem delle coppie s(somma recensioni) e h (oggetto Hotel) dove s è la somma dell'attributo voto di tutti i link recensione
 
-        -sia R l'insieme dei link di associazione (h, p): Recensione
+        -sia R l'insieme delle coppie (h, r) dove h è in H ed r è il numero di link di associazione a cui h partecipa
 
-        -sia n la cardinalità nell'insieme R
+        
 
-        - sia m il rapporto tra s e n (m = s/n)
-
-        - crea e restituisce un insieme di oggetti h: Hotel con il loro corrispettivo valore m 
+        - sia result l'insieme delle coppie (h, m) dove h è in H e m è il rapoorto tra s e r (m = s / r)
 

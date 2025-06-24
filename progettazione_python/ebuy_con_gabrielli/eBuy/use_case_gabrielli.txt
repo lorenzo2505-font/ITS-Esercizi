@@ -131,6 +131,136 @@ lascia_feedback(po: PostOggetto, voto: 0..5, commento: stringa [0..1]): PostConF
 
 
 
+SPECIFICA DELLO USE CASE STRUMENTI VENDITA 
+
+
+pubblica_compralosubito(prezzo: Reale > 0, descrizione: Stringa, anni_garanzia >= 0, is_nuovo: Booleano, condizione: Condizione [0..1]):
+
+    precondizioni:
+
+        -se is_nuovo = true allora anni_garanzia > 1
+        -se is_nuovo = false, allora condizione deve essere valorizzato
+        -se condizione è valorizzato, allora is_nuovo = false
+        -se l'attore che invoca l'operazione è associato a un oggetto di classe Privato,
+
+            allora is_nuovo = false
+
+    postcondizioni:
+
+        -crea l'oggetto cs: CompraloSubito e assegna:
+
+            -cs.descrizione = descrizione
+            -cs.pubblicazione = adesso
+            -cs.prezzo = prezzo
+            -cs.anni_garanzia = anni_garanzia
+        
+        se is_nuovo = false:
+
+            -cs.condizione = condizione
+        
+        se l'attore che invoca l'operazione è un oggetto della classe p: Privato allora crea
+
+        il link(p, cs): priv_ut
+
+        altrimenti(attore di classe p: VenditoreProf) allora crea il link(p, cs): pubblica
+
+        restituisce cs
+
+
+
+
+
+
+pubblica_asta(prezzo: Reale > 0, descrizione: Stringa, anni_garanzia >= 0, is_nuovo: Booleano, condizione: Condizione [0..1], scadenza: DataOra, prezzo_bid: Reale > 0):
+
+    precondizioni:
+
+        -se is_nuovo = true allora anni_garanzia > 1
+        -se is_nuovo = false, allora condizione deve essere valorizzato
+        -se condizione è valorizzato, allora is_nuovo = false
+        -se l'attore che invoca l'operazione è associato a un oggetto di classe Privato,
+
+            allora is_nuovo = false
+        - scadenza > adesso
+
+    postcondizioni:
+
+        -crea l'oggetto cs: CompraloSubito e assegna:
+
+            -cs.descrizione = descrizione
+            -cs.pubblicazione = adesso
+            -cs.prezzo = prezzo
+            -cs.anni_garanzia = anni_garanzia
+            -a.scadenza = scadenza
+            -a.prezzo_bid = prezzo_bid
+        
+        se is_nuovo = false:
+
+            -cs.condizione = condizione
+        
+        se l'attore che invoca l'operazione è un oggetto della classe p: Privato allora crea
+
+        il link(p, cs): priv_ut
+
+        altrimenti(attore di classe p: VenditoreProf) allora crea il link(p, cs): pubblica
+
+        restituisce cs
+
+
+
+check_pubblicazione(): Booleano
+
+precondizioni: nessuna
+
+postcondizioni:
+
+ - se una delle seguenti condizione è violata ritorna false:
+    -se is_nuovo = true allora anni_garanzia > 1
+    -se is_nuovo = false, allora condizione deve essere valorizzato
+    -se condizione è valorizzato
+
+
+
+
+
+
+
+//Per raggruppare queste due operazoni in un unica operazione:
+
+	pubblica_post(prezzo:Reale>0, descrizione: Stringa, anni_garanzia: Intero >=0, is_nuovo:booleano, condizione: Condizione [0..1], is_asta:booleano, scadenza:DataOra[0..1], prezzo_bid:Reale >0[0..1]): CompraloSubito
+
+		precondizioni
+				- Se is_nuovo = true allora anni_garanzia >1
+				- Se is_nuovo = false, allora condizione deve essere valorizzato.
+
+				- Se condizione è valorizzato, allora is_nuovo = false.
+
+				- Se l'attore che invoca l'operazione è assocaito a un oggetto di classe Privato, allora is_nuovo = false.
+				- Se is_asta = true se e solo se scadenza è valorizzato
+				- Se is_asta = true se e solo se prezzo_bid è valorizzato.
+				- Se is_asta = false allora prezzo >0
+				- scadenza >adesso
+			postcondizioni:
+				- Crea l'oggetto po:PostOggetto e assegna:
+					- po.descrizione = descrizione 
+					- po.pubblicazione = adesso
+					- po.prezzo = prezzo
+					- po.anni_garanzia = anni_garanzia. 
+					- po.scadenza = scadenza.
+				- Se is_asta = true:
+					- po:Asta
+					- po.scadenza = scadenza
+					- po.prezzo_bid = prezzo_bid.
+				- Altrimenti (is_asta = false):
+					-po:CompraloSubito
+				- Se is_nuovo = false:
+					- a.condizione = condizione
+				- Se l'attore che invoca l'operazione di use case è di classe p:Privato allora crea il link (p,a):priv_ou.
+				- Altrimenti (l'attore è di classe p:VenditoreProf) allora crea il link (p,a):pubblica.
+				- restituisci a.
+
+
+
 
 
 
