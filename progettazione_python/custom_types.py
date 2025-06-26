@@ -298,3 +298,5 @@ class Ruolo():
     direttore = auto()
 
     progettista = auto()
+
+
