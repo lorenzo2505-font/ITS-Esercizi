@@ -30,23 +30,26 @@ class Progetto:
         return self._nome
     
     def _add_link_resp_prog(self, l: resp_prog._link):
+
+        if l.progetto() != self:
+            raise ValueError(f"Il link non coinvolge me, ma {l.progetto()}")
         
         if l.impiegato() in self._impiegati:
             raise KeyError("l'impiegato è già responsabile di questo progetto")
         
-        if l.impiegato().is_responsabile() == False:
-            raise KeyError("l'impiegato non ha la responsabilità per la gestione di progetti")
+        
         
         self._impiegati[l.impiegato()] = l
     
-    def _remove_link_coinvolto(self, l: resp_prog._link):
+    def _remove_link_resp_prog(self, l: resp_prog._link):
+
+        if l.progetto() != self:
+            raise ValueError(f"Il link non coinvolge me, ma {l.progetto()}")
 
         if l.impiegato() not in self._impiegati:
             raise KeyError(f"l'impiegato non aveva la responsabilità su questo progetto")
         
-        if l.impiegato().is_responsabile() == False:
-
-            raise KeyError("l'impiegato non ha la responsabilità sulla gestione di progetti, ergo è escluso a priori")
+        
         
         del self._impiegati[l.impiegato()]
     
@@ -70,8 +73,6 @@ class Progetto:
     def __str__(self):
         
         return f"{self._nome}"
-
-
     
 
 

@@ -53,6 +53,10 @@ class Impiegato(Persona):
     
     def _add_link_resp_prog(self, l: resp_prog._link):
 
+        if l.impiegato() != self:
+
+            raise ValueError(f"il link non coinvolge me, ma {l.impiegato()}")
+
         if l.progetto() in self._progetti:
 
             raise KeyError(f"l'impiegato è già responsabile di questo progetto")
@@ -61,9 +65,13 @@ class Impiegato(Persona):
 
             raise Exception(f"l'impiegato non ha la responsabilità su un progetto")
         
+        
         self._progetti[l.progetto()] = l
     
     def _remove_link_resp_prog(self, l: resp_prog._link):
+
+        if l.impiegato() != self:
+            raise ValueError(f"il link non coinvolge me, ma {l.impiegato()}")
 
         if l.progetto() not in self._progetti:
             
@@ -75,7 +83,7 @@ class Impiegato(Persona):
         
         del self._progetti[l.progetto()]
 
-        self._is_responsabile = False
+        
     
     def progetti(self) -> frozenset[resp_prog._link]:
         return frozenset(self._progetti.values())
