@@ -1,0 +1,3 @@
+da:acomanni.lorenzo@iiscaffe.it a: alessandro.maiorana@iiscaffe.it
+titolo: formula accelerazione
+messaggio: a = v / t
