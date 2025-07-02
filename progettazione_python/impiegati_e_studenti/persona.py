@@ -112,7 +112,15 @@ class Persona:
     
     def setGenere(self, genere: Genere):
 
-        self._genere = genere
+        if genere == Genere.uomo:
+
+            self._maternità = None
+        
+        else:
+
+            self._posizione_militare = None
+        
+        self._genere = genere 
     
    
     
