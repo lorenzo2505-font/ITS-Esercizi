@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+
+
+ultimo_bid(): Bid | None:
+
+    B = {}
+
+    max_b = this.asta_bid.bid[0]
+
+    per ogni l in this.asta_bid:
+
+        per ogni l in this.asta_bid:
+
+            se b.istante > max_b.istante:
+                max_b = b
+    
+
+    return max_b
+
+
+
