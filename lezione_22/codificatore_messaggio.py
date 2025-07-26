@@ -41,7 +41,9 @@ class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
         
         if chiave > 26:
 
-            chiave -= 26
+            while chiave > 26:
+
+                chiave -= 26
         
         self.chiave = chiave
 
@@ -80,8 +82,66 @@ class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
         
         return messaggio_codificato
     
-    def decodifica(self, testoCodificato):
-        return super().decodifica(testoCodificato)
+
+    
+    
+    def decodifica(self, testoCodificato: str) -> str:
+        
+        l = ascii_lowercase
+        u = ascii_uppercase
+
+        messaggio_decodificato: str = ""
+
+        for i in range(len(testoCodificato)):
+
+            if testoCodificato[i] in l:
+
+                for j in range(len(l)):
+
+                    if l[j] == testoCodificato[i]:
+
+                        messaggio_decodificato += l[j - self.chiave]
+            
+            elif testoCodificato[i] in u:
+
+                for j in range(len(u)):
+
+                    if u[j] == testoCodificato[i]:
+
+                        messaggio_decodificato += u[j - self.chiave]
+            
+            else:
+
+                messaggio_decodificato += testoCodificato[i]
+        
+        return messaggio_decodificato
+    
+    def file(self):
+
+        with open("lezione_22/myfile.txt", "r") as file:
+
+            testo = file.read()
+        
+        c = self.codifica(testo)
+
+        with open("lezione_22/encrypt_file.txt", "w") as file2:
+
+            file2.write(c)
+        
+        with open("lezione_22/encrypt_file.txt", "r") as file3:
+
+            testo_codificato = file3.read()
+        
+        return testo_codificato
+
+            
+        
+        
+
+            
+        
+
+        
 
 
 
@@ -93,7 +153,7 @@ class CifratoreACombinazione(CodificatoreMessaggio, DecodificatoreMessaggio):
 
         self.n = abs(n)
     
-    def codifica(self, testoInChiaro):
+    def codifica(self, testoInChiaro: str) -> str:
 
         messaggio_codificato: str = ""
 
@@ -131,19 +191,46 @@ class CifratoreACombinazione(CodificatoreMessaggio, DecodificatoreMessaggio):
         
         
 
-                
+    def decodifica(self, testoCodificato: str) -> str:
 
-                
-        
+        group1: str = ""
 
+        group2: str = ""
+
+        messaggio_decodificato: str = ""
+
+        for i in range(len(testoCodificato)):
+
+            if i % 2 == 0:
+
+                group1 += testoCodificato[i]
+            
+            else:
+
+                group2 += testoCodificato[i]
         
-        
-        
-        
+        messaggio_decodificato += group1 + group2
+
+        return messaggio_decodificato
     
-    
-    def decodifica(self, testoCodificato):
-        return super().decodifica(testoCodificato)
+    def file(self):
+
+        with open("lezione_22/meteora.txt", "r") as file:
+
+            testo = file.read()
+        
+        c = self.codifica(testo)
+
+        with open("lezione_22/encrypt_file.txt", "w") as file2:
+
+            file2.write(c)
+        
+        with open("lezione_22/encrypt_file.txt", "r") as file3:
+
+            testo_codificato = file3.read()
+        
+        return testo_codificato
+        
 
 
 
@@ -156,11 +243,26 @@ def main():
 
     '''c: CifratoreAScorrimento = CifratoreAScorrimento(3)
 
-    print(c.codifica("aA!"))'''
+    print(c.codifica("aA!"))
+    print(c.decodifica("dD!"))
 
     c2: CifratoreACombinazione = CifratoreACombinazione(1)
 
     print(c2.codifica("abcdefghi"))
+    print(c2.decodifica("afbgchdie"))'''
+
+    numb: CifratoreAScorrimento = CifratoreAScorrimento(3)
+
+    print(numb.file())
+
+    faint: CifratoreACombinazione = CifratoreACombinazione(1)
+
+    print(faint.file())
+
+    
+
+
+    
 
 
 main()
