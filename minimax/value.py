@@ -1,14 +1,14 @@
 from terminal import terminal
 
 
-def value(tris: list[list[str]]) -> int:
+def value(tris: list[list[str]]) -> int: # funzione che dato lo stato di una griglia fornisce un valore 
 
-    t = terminal(tris)
+    t = terminal(tris) # il punteggio verrà stabilito solo se il gioco è finito, viene quindi importata la funzione terminal
 
     if t:
         counter = 0
 
-        for i in range(2 + 1):
+        for i in range(2 + 1): # come nella funzione terminal controllo tutte le possibilità di vittoria per "x" oppure "o" su righe, colonne e diagonali utilizzando gli indici, ritorno 1 per "x", -1 per "o"
 
             if ("x" in tris[i]) and ("o" not in tris[i]) and ("" not in tris[i]):
 
@@ -37,14 +37,14 @@ def value(tris: list[list[str]]) -> int:
 
             return -1
         
-        if counter == 3:
+        if counter == 3: # come nella funzione terminal, controllo la possibilità di pareggio e nel caso ritorno 0
 
             return 0
     
     return None
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # codice driver
 
     tris1: list[list[str]] = [["x", "x", "o"],
                               ["x", "o", "o"],
