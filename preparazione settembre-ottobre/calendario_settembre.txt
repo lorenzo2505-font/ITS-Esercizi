@@ -1,0 +1,11 @@
+CALENDARIO STUDIO (1 - 14 settembre)
+
+Mattina (9:00 - 12:15)
+- 2h Sistemi Digitali
+- 1h Linux / Shell programming
+
+Pomeriggio (14:30 - 17:45)
+- JavaScript / React
+
+Nota:
+Se ho tempo ed energia, posso fare un po' di Python (esercizi o LeetCode).

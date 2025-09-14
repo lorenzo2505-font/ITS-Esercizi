@@ -1,0 +1,38 @@
+
+ultimo_bid(): Bid | None:
+
+    B = {}
+
+    max_b = this.asta_bid.bid[0]
+
+    per ogni l in this.asta_bid:
+
+        per ogni l in this.asta_bid:
+
+            se b.istante > max_b.istante:
+                max_b = b
+    
+
+    return max_b
+
+
+
+conclusa(): bool
+
+    se this.scadenza <= datetime.now():
+        return True
+    
+    return False
+
+
+
+
+
+vincitore (): Privato|None
+
+    se this.conclusa() == False:
+        return None
+    
+    b = this.ultimo_bid()
+
+    return b.bid_ut.privato

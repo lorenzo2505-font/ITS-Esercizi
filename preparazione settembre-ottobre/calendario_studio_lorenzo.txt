@@ -1,0 +1,95 @@
+CALENDARIO DI STUDIO - LORENZO ACOMANNI
+
+==================================================
+BLOCCO DI STUDIO PRINCIPALE (Agosto - Settembre)
+==================================================
+
+📌 Struttura giornaliera:
+- Mattina (09:00–10:30 / 10:45–12:15) → Sistemi Digitali
+- Pomeriggio (14:30–16:00 / 16:15–17:45) → Python
+
+📌 Regole:
+- 1 lezione per ogni blocco (massimo)
+- Pausa studio dall'8 al 16 agosto (eccetto mini-calendario leggero)
+- Esami a metà settembre
+
+--------------------------------------------------
+SISTEMI DIGITALI (Mattino)
+--------------------------------------------------
+01 ago → Lezione 07 – Fondamenti di reti
+02 ago → Lezione 10 – Codice binario
+03 ago → Lezione 11 – Von Neumann (✅ fatta)
+04 ago → Lezione 11 – Protocolli di rete
+05 ago → Lezione 12 – Sistemi operativi (✅ fatta)
+06 ago → Lezione 12 – ISO/OSI, livello fisico, data link
+07 ago → Lezione 16 – Livelli alti ISO/OSI
+
+🛑 Pausa: 8 – 16 agosto
+
+17 ago → Lezione 17 – Servizi del sistema operativo
+18 ago → Lezione 19 – Modello TCP/IP
+19 ago → Lezione 20 – Docker
+20 ago → 🔄 Ripasso pytest (anziché Sistemi)
+21 ago → Lezione 21 – Linux
+22 ago → Lezione 22 – Shell programming
+
+--------------------------------------------------
+PYTHON (Pomeriggio)
+--------------------------------------------------
+01 ago → Lezione 02 – Collection
+02 ago → Lezione 03 – Cicli e condizionali
+03 ago → Lezione 04 – Funzioni (✅ fatta)
+04 ago → Lezione 05 – List comprehensions
+05 ago → Lezione 06 – Classi
+06 ago → Lezione 08 – Ereditarietà, astratte, polimorfismo
+07 ago → Lezione 09 – Regex e lambda
+
+🛑 Pausa: 8 – 16 agosto
+
+17 ago → 🔄 Revisione lezioni 02–09
+18 ago → Lezione 13 – Ricorsione e Fibonacci
+19 ago → Lezione 14 – Test e pytest
+20 ago → Lezione 15 – File in Python (+ mattina ripasso pytest)
+21 ago → Lezione 18 – Eccezioni
+22 ago → Ripasso – Collection
+23 ago → Ripasso – Condizionali, cicli, funzioni
+24 ago → Ripasso – Classi
+25 ago → Ripasso – Cifrario di Cesare
+26 ago → Ripasso – Ricerca binaria
+27 ago → Ripasso – Frequenza parole
+28 ago → Ripasso – Somma diagonali
+29 ago → Ripasso – Validazione IPv4
+30 ago → Ripasso – Unione intervalli
+31 ago → Recupero e potenziamento (1)
+
+01 set → Recupero e potenziamento (2)
+02 set → Recupero e potenziamento (3)
+03 set → Recupero e potenziamento (4)
+04 set → Recupero e potenziamento (5)
+05 set → Recupero e potenziamento (6)
+06 set → Recupero e potenziamento (7)
+07 set → Lezione extra – Bubble Sort e notazione
+
+08–13 set → Giorni liberi per ripasso, esercitazioni finali e simulazioni
+
+==================================================
+MINI-CALENDARIO DI PAUSA (10 – 15 Agosto)
+==================================================
+
+📌 Struttura:
+- Pomeriggio → React (esercizi + revisione concetti)
+- Sera → Ripasso Sistemi Digitali
+
+10 ago → React (Esercizi 1–2 + componenti) | Sistemi: Codice binario
+11 ago → React (Esercizi 3–4 + props)      | Sistemi: Von Neumann
+12 ago → React (Esercizi 5–6 + useState)   | Sistemi: Sistemi operativi
+13 ago → React (Esercizi 7–8 + useEffect)  | Sistemi: Fondamenti di reti
+14 ago → React (Esercizi 9–10 + fetch)     | Sistemi: Protocolli di rete
+15 ago → React (Esercizio 11 + form)       | Sistemi: Modello ISO/OSI
+
+==================================================
+NOTE FINALI
+==================================================
+- Ogni blocco di studio corrisponde a una sola lezione o argomento.
+- Il calendario tiene conto delle tue modifiche più recenti (incluso lo spostamento del 20 agosto).
+- La settimana di pausa (8–16 agosto) rimane, ma dal 10 al 15 ci sono attività leggere.

@@ -1,0 +1,64 @@
+TESTING IN PYTHON
+
+Il testing è una parte molto importante ed essenziale del processo di sviluppo software. Garantisce che il nostro software, 
+le nostre applicazioni e i nostri siti web funzionino come previsto.
+
+Il testing è una buona pratica che può far risparmiare tempo e denaro individuando e risolvendo i problemi prima che causino problemi gravi.
+
+I test unitari sono segmenti di codice scritti per testare altri pezzi di codice, in genere una singola funzione o un singolo metodo,
+che chiamiamo unità.
+
+Python dispone di due framework principali per semplificare i test unitari: unittest e PyTest.
+
+THE ASSERT STATEMENT
+
+L'istruzione assert è un'istruzione integrata in Python utilizzata per verificare se una determinata condizione è vera o falsa.
+
+Se la condizione è vera, non accade nulla, ma se non è vera, viene generato un errore.
+
+Sebbene a prima vista possa sembrare simile alle clausole try ed except, sono completamente diverse e assert non dovrebbe essere utilizzata per
+la gestione degli errori, ma per scopi di debug e test.
+
+• Ad esempio, la condizione nella riga seguente è vera e, pertanto, non genera né restituisce nulla:
+assert 1 > 0
+
+• Tuttavia, se modifichiamo questa condizione in modo che diventi falsa, otteniamo un AssertionError:
+assert 1 < 0
+
+• Si noti che nell'ultima riga del messaggio di errore non c'è un messaggio vero e proprio dopo AssertionError.
+
+• Questo perché l'utente dovrebbe passare questo messaggio. Ecco come:
+assert 1 < 0, 'La condizione è falsa'
+
+THE ASSERT STATEMENT SYNTAX
+
+Quindi, la sintassi di base per l'istruzione assert è la seguente:
+assert <condizione da testare>, <messaggio di errore da visualizzare>
+
+Assert è molto semplice da usare.
+
+Capirne il funzionamento è fondamentale ai fini dei test, come vedremo nelle sezioni seguenti.
+
+
+PYTEST
+
+Il framework Pytest semplifica la scrittura di test piccoli e leggibili e può essere scalato per supportare test funzionali complessi per
+applicazioni e librerie.
+
+TEST CONVENTIONS
+
+Prima di immergerci nella scrittura dei test, è importante rivedere alcune convenzioni di test su cui si basa Pytest.
+
+Di solito, per i nostri progetti, è preferibile utilizzare una struttura di cartelle simile.
+
+Per i test nel nostro progetto, si consiglia di:
+• Utilizzare una directory "test" per archiviare i file di test e tutte le directory di test nidificate.
+• Aggiungere un prefisso "test" a tutti i file di test. Questo prefisso indica che il file contiene codice di test.
+
+Nota.
+Evitare di usare test come nome della directory.
+
+Il nome test è un modulo Python, quindi creare una directory con lo stesso nome potrebbe causare
+conflitti o sostituzioni.
+
+Utilizzare sempre la forma plurale tests.
