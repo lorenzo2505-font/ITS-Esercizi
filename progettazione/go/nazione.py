@@ -1,0 +1,25 @@
+class Nazione:
+    _nome: str
+
+    def __init__(self, nome: str):
+        self.setNome(nome)
+    
+    def setNome(self, nome: str):
+        
+        if nome:
+            self._nome = nome
+        
+        else:
+            raise ValueError('inserire un nome valido')
+    
+    def getNome(self) -> str:
+        return self._nome
+    
+    def __str__(self):
+        return f'nome nazione: {self._nome}'
+
+
+if __name__ == '__main__':
+
+    italia: Nazione = Nazione('Italia')
+    print(italia)

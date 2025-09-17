@@ -300,3 +300,14 @@ class Ruolo():
     progettista = auto()
 
 
+class Komi(float):
+    
+    def __new__(cls, v: float|int|str|bool|Self) -> Self:
+        n: float = super().__new__(cls, v)
+
+        if 0 <= n <= 10:
+            return n
+        
+        raise ValueError(f'il valore {n} non è compreso tra 0 e 10')
+
+
