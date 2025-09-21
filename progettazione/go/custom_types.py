@@ -311,3 +311,7 @@ class Komi(float):
         raise ValueError(f'il valore {n} non è compreso tra 0 e 10')
 
 
+
+class Rinuncia(Enum):
+    bianco = auto()
+    nero = auto

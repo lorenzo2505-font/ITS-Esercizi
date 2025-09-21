@@ -1,5 +1,5 @@
 class Nazione:
-    _nome: str
+    _nome: str # noto alla nascita
 
     def __init__(self, nome: str):
         self.setNome(nome)
