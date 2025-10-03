@@ -1,0 +1,61 @@
+REQUISITI
+
+-Opera, si vuole sapere:
+    -nome: Stringa
+    -categoria: categoria -Enumerativo(dipinto, scultura, mosaico, manoscritto, altro)
+    -autore (vedere Autore)
+    -anno_realizzazione: Intero > 0
+    -tecnica (se rilevante): Stringa [0..1]
+    -correnti_artistiche: Stringa
+
+-Autore, si vuole sapere:
+    -nome_artistico: Stringa
+    -nascita: Data
+    -morte (se morto): Data [0..1]
+    -opere (vedere Opera)
+
+-Città, si vuole sapere:
+    -nome: Stringa
+
+-Regione, si vuole sapere:
+    -nome: Stringa
+
+-Nazione, si vuole sapere:
+    -nome: Stringa
+
+-Esposizione, può essere (Permanente, Temporanea)
+
+-Permanente
+
+-Temporanea, si vuole sapere:
+    -nome: Stringa
+    -intervallo_date: Data [1..2]
+    -prezzo: Reale > 0 (FORSE probabilmente removibile con link Tariffa)
+
+-Tariffa, si vuole sapere:
+    -nome: Stringa
+    -prezzo_base: Reale >= 0
+
+
+-Biglietto, si vuole sapere, può essere(Standard, ExtendedAccess):
+    -istante_vendita: DataOra
+    -data_validità: Data (OPPURE DataOra OPPURE operazione calcolabile ? scelto dal visitatore, association class ?)
+    -tariffa (vedere Tariffa)
+
+-Standard
+
+-ExtendedAccess
+
+-Funzionalità:
+    -inserimento e rimozione di opere d’arte;
+    -creazione di un’esposizione, con le opere relative;
+    -aggiunta di un artista e modifica delle sue informazioni;
+    -modifica delle informazioni di un’esposizione;
+    -registrazione della vendita di uno o pi`u biglietti di una certa tipologia e validi per una certa data.
+    -calcolo degli introiti totali per una certa esposizione temporanea, in un dato periodo.
+
+-Specifica operazioni:
+    -Data un’esposizione temporanea e una data, calcolare il numero di biglietti Extended access venduti per tale esposizione e validi per tale data
+    -Dato un periodo di tempo, calcolare le esposizioni temporanee per la quale `e stato venduto il pi`u alto numero di biglietti Extended access nel periodo.
+    -Dato un artista e un periodo di tempo, calcolare le opere realizzate dall’artista che non sono mai state esposte nel periodo dato.
+ 
