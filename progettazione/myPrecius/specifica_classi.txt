@@ -1,0 +1,11 @@
+SPECIFICA DELLE CLASSI 
+
+Specifica della classe Standard
+
+-ogni istanza di questa classe rappresenta un biglietto di tipo Standard
+
+-pre-condizioni:
+    -l'oggetto di invocazione ('this') è coinvolto in un link di associazione tar_bi e in almeno un link di associazione per_stand
+
+-post-condizioni:
+    

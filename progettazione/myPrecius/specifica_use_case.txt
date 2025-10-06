@@ -1,0 +1,38 @@
+SPECIFICA DEGLI USECASE
+
+1.Data un’esposizione temporanea e una data, calcolare il numero di biglietti Extended
+access venduti per tale esposizione e validi per tale data.
+
+primo_calcolo(Data: Data, temporanea: Temporanea) -> intero >= 0
+
+- pre-condizioni:
+    -esiste almeno un link_
+
+-post-condizioni:
+    -sia b ExtendedAccess
+    -sia E l'insieme dei link di associazione (temporanea, b): temp_extended tale che b.istante_vendita > d
+    -sia N la cardinalità dell'insieme E
+    -result = N
+
+
+
+2. Dato un periodo di tempo, calcolare le esposizioni temporanee per la quale `e stato
+venduto il pi`u alto numero di biglietti Extended access nel periodo.
+
+secondo_calcolo(inizio: Data, fine: data) -> Temporanea:
+pre-condizioni
+
+-post_condizioni:
+    -sia E l'insieme dei link di associazione (t: Temporanea, e: ExtendedAccess) tale che e.istante_vendita > inizio e e.istante_vendita < fine
+    - per ogni oggetto e: ExtendedAccess sia N la cardinalità dei link di associazione temp_extended
+    -sia result l'oggetto e: ExtendedAccess con la cardinalità maggiore
+
+
+3.Dato un artista e un periodo di tempo, calcolare le opere realizzate dall’artista che non
+sono mai state esposte nel periodo dato.
+
+terzo_calcolo(a: Artista, inizio: Data, fine: Data) -> intero >= 0:
+    -sia O l'insieme dei link di associazione o: Opera tali che esiste il link(o, a: Artista) Creazione
+    -sia E l'insieme dei o: Opera tali che o appartiene a O ed esiste un link (o, e): espone, tale che l'intervallo [(o, e).inizio, (o, e).fine si sovrappone a [fine, a]]
+    -result = O - E
+
