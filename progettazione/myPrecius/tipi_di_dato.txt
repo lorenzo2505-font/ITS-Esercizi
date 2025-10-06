@@ -1,0 +1,5 @@
+TIPI DI DATO SPECIALIZZATI
+
+-Categoria, tipo di dato enumerativo (dipinto, scultura, mosaico, manoscritto, altro)
+-Tecnica, tipo di dato enumerativo (olio, acrilica, tempera, acqurello, affresco, fusione, intaglio, modellazione, altro)
+-Corrente, tipo di dato enumerativo (Antica, Medievale, Rinascimento, Barocco, Neoclassicismo, Romanticismo, Realismo, Impressionismo, Post-Impressionismo, Simbolismo, Avanguardia del XX Secolo)
