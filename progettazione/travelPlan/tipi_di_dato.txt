@@ -1,0 +1,4 @@
+TIPI DI DATO SPECIALIZZATI 
+
+-Email: Stringa alfanumerica secondo standard 
+-Descrizione: Stringa

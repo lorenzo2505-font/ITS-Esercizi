@@ -1,0 +1,35 @@
+REQUISITI
+
+-Utente, può essere (Organizzatore), si vuole sapere:
+    -nome: Stringa
+    -cognome: Stringa
+    -email: Email
+    -città: (vedere Città)
+    -iscrizione: Data
+
+
+
+-Città, si vuole sapere:
+    -nome: Stringa
+
+-Regione, si vuole sapere:
+    -nome: Stringa
+
+-Nazione, si vuole sapere:
+    -nome: Stringa
+
+-Organizzatore
+
+-Viaggio, si vuole sapere:
+    -nome: Stringa
+    -minimo_partecipanti: Intero >= 1
+    -massimo_partecipanti: Intero > 1
+
+-Attività, si vuole sapere:
+    -nome: Stringa,
+    -istante_inizio: DataOra
+    -durata: Reale > 0
+    -prezzo: Reale >= 0
+    -luogo(vedere città, regione, nazione)
+    -descrizione: Descrizione
+    
