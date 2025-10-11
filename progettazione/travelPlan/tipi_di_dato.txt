@@ -2,3 +2,5 @@ TIPI DI DATO SPECIALIZZATI
 
 -Email: Stringa alfanumerica secondo standard 
 -Descrizione: Stringa
+-Indirizzo: tipo di dato composta da (via: Stringa, civico: Stringa numerica, cap: Stringa numerica composta da 5 caratteri)
+

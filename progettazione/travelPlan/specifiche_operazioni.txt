@@ -1,0 +1,81 @@
+SPECIFICHE OPERAZIONI 
+
+1. Dato un viaggio e un utente che vi partecipa, calcolare il numero di attivit`a del viaggio
+di tipo “spostamento” alle quali ha preso parte
+
+prima_operazione(v: Viaggio, u:Utente) -> Intero:
+
+    pre-condizioni:
+        -deve esservi almeno un link di associazione tra viaggio e utente tale che (u, v) ut_viaggio
+
+    post-condizioni:
+        -sia X l'insieme dei link di associazione tra S: Semplice e v: Viaggio tale che (v, s) associato
+        -sia N la cardinalità dell'insieme X
+        -result = N
+
+
+2. Dato un viaggio, ottenere gli utenti che hanno partecipato al viaggio e che hanno preso
+parte al maggior numero di attivit`a organizzate in esso.
+
+seconda_operazione(v: Viaggio) -> Intero:
+
+    pre-condizioni:
+        -deve esservi almeno un link di associazione tra utente e viaggio 
+
+    post_condizioni:
+        -sia X l'insieme dei link di associazione u: Utente tali che (u, v) ut_viaggio 
+        -per ogni v: Viaggio sia Y l'insieme dei link di associazione tali che (v: Viaggio, a: Attività) composto, appartenente a X
+        -sia N la cardinalità dell'insieme Y 
+        -sia result l'oggetto v: Viaggio con cardinalità maggiore 
+
+
+3. I responsabili del sistema, data una nazione, devono poter calcolare, per ognuna delle
+sue regioni, la/e citt`a toccata/e dal maggior numero di viaggi.
+
+terza_operazione(n: Nazione) -> intero:
+
+    post_condizioni:
+        -sia NR l'insieme dei link di associazione tali che (r: Regione, n): reg_naz
+        -per ogni r: Regione sia CR l'insieme dei link di associazione tali che (c: Città, r) cit_reg appartenente a NR
+        -per ogni c: città sia LC l'insieme dei link di associazione tali che (c, l: Luogo) l_cit appartenente a CR
+        -per ogni 
+
+
+4. Data un’attivit`a, calcolare il numero di utenti che vi ha preso parte.
+
+quarta_operazione(a: Attività) -> Intero:
+
+    -pre_condizioni
+
+    -post_condizioni:
+        -sia X l'insieme dei link di associazione tale che (a: Attività, v: Viaggio) associato
+        - sia Y l'insieme dei link di associazione tale che (v: Viaggio, u: Utente) ut_viaggio in X
+        - sia N la cardinalità di Y
+        -result = n
+
+
+5. Dato un viaggio, ottenere la/e attivit`a organizzata/e in esso alla/e quale/i ha preso
+parte il maggior numero di utenti.
+
+quinta_operazione(v: Viaggio) -> Intero:
+
+    -pre_condizioni:
+
+    -post_condizioni:
+        -sia X l'insieme dei link di associazione tali che (U: Utente, V: Viaggio) ut_viaggio
+        -sia Y l'insieme dei link di assocazioni tali che (v: Viaggio, a:Attività) associato, in X 
+
+
+6. Data una citt`a di destinazione, per ognuno dei 12 mesi dell’anno, calcolare il numero
+di viaggi organizzati in tale mese nell’ultimo anno solare, in tale citt`a
+
+    sesta_operazione(c: Città)
+
+    -pre_condizioni:
+
+
+    -post_condizioni:
+        -sia X l'insime dei link di associazione tra c: Città e o: Organizzatore 
+
+
+

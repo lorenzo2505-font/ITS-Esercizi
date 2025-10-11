@@ -32,4 +32,5 @@ REQUISITI
     -prezzo: Reale >= 0
     -luogo(vedere città, regione, nazione)
     -descrizione: Descrizione
+    -spostamento: Spostamento
     
