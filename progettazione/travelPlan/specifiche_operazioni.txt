@@ -6,11 +6,12 @@ di tipo “spostamento” alle quali ha preso parte
 prima_operazione(v: Viaggio, u:Utente) -> Intero:
 
     pre-condizioni:
-        -deve esservi almeno un link di associazione tra viaggio e utente tale che (u, v) ut_viaggio
+        -deve esservi almeno un link di associazione tra viaggio e utente tale che (u, v) partecipa, senno result = 0
 
     post-condizioni:
-        -sia X l'insieme dei link di associazione tra S: Semplice e v: Viaggio tale che (v, s) associato
-        -sia N la cardinalità dell'insieme X
+        -sia E l'insieme degli oggetti s: Spostamento che partecipano a dei link di associazione (s, v) Associato
+        -sia B l'insieme dei link di associazione (s, u) ut_att in E
+        -sia N la cardinalità
         -result = N
 
 
@@ -23,10 +24,9 @@ seconda_operazione(v: Viaggio) -> Intero:
         -deve esservi almeno un link di associazione tra utente e viaggio 
 
     post_condizioni:
-        -sia X l'insieme dei link di associazione u: Utente tali che (u, v) ut_viaggio 
-        -per ogni v: Viaggio sia Y l'insieme dei link di associazione tali che (v: Viaggio, a: Attività) composto, appartenente a X
-        -sia N la cardinalità dell'insieme Y 
-        -sia result l'oggetto v: Viaggio con cardinalità maggiore 
+        -sia E l'insieme di oggetti u:Utenti che partecipano dei link di associazione (u, v) partecipa e (u,v) organizza 
+        -per ogni u: Utente nell'insieme E sia B l'insieme dei link di associazione (u, a) ut_att
+        -sia result l'oggetto u: Utente con cardinalità maggiore
 
 
 3. I responsabili del sistema, data una nazione, devono poter calcolare, per ognuna delle
@@ -45,25 +45,26 @@ terza_operazione(n: Nazione) -> intero:
 
 quarta_operazione(a: Attività) -> Intero:
 
-    -pre_condizioni
+    -pre_condizioni:
+        -deve esistere almeno un link di associazione tra attività e utente 
 
     -post_condizioni:
-        -sia X l'insieme dei link di associazione tale che (a: Attività, v: Viaggio) associato
-        - sia Y l'insieme dei link di associazione tale che (v: Viaggio, u: Utente) ut_viaggio in X
-        - sia N la cardinalità di Y
-        -result = n
+        -sia E l'insieme degli oggetti u:Utente che partecipano ai link di associazione (a, u) ut_att 
+        -sia N la cardinalità di E
+        -result = N 
 
 
 5. Dato un viaggio, ottenere la/e attivit`a organizzata/e in esso alla/e quale/i ha preso
 parte il maggior numero di utenti.
 
-quinta_operazione(v: Viaggio) -> Intero:
+quinta_operazione(v: Viaggio) -> Attività:
 
     -pre_condizioni:
 
     -post_condizioni:
-        -sia X l'insieme dei link di associazione tali che (U: Utente, V: Viaggio) ut_viaggio
-        -sia Y l'insieme dei link di assocazioni tali che (v: Viaggio, a:Attività) associato, in X 
+        -sia E l'insieme di oggetti a: Attività che partecipano a un link di associazione (a, v) Associato
+        -per ogni oggetto a nell'insieme E quarta_operazione(a)
+        -sia result l'oggetto a con il valore di quarta_operazione(a) massimo
 
 
 6. Data una citt`a di destinazione, per ognuno dei 12 mesi dell’anno, calcolare il numero

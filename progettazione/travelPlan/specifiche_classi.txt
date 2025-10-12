@@ -1,0 +1,21 @@
+SPECIFICHE CLASSI 
+
+CLASSE UTENTE 
+
+per ogni u: Utente
+    -u.iscrizione >= adesso
+
+
+CLASSE VIAGGIO 
+
+per ogni v: Viaggio
+    -v.massimo_partecipanti > v.minimo_partecipanti
+
+
+
+CLASSE ATTIVITA'
+
+per ogni a: Attività:
+    -v.istante_inizio >= adesso 
+    -Per ogni a: Attivita a.istante_inizio + a.durata non deve intersecare con l'istante d'inizio di un'altra attivita di quel viaggio.
+

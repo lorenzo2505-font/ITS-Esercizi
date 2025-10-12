@@ -23,7 +23,7 @@ REQUISITI
 -Viaggio, si vuole sapere:
     -nome: Stringa
     -minimo_partecipanti: Intero >= 1
-    -massimo_partecipanti: Intero > 1
+    -massimo_partecipanti: Intero > minimo_partecipanti
 
 -Attività, si vuole sapere:
     -nome: Stringa,
@@ -33,4 +33,11 @@ REQUISITI
     -luogo(vedere città, regione, nazione)
     -descrizione: Descrizione
     -spostamento: Spostamento
+
+
+Luogo, si vuole sapere:
+    -indirizzo: Indirizzo
+    -città(vedere città)
+    -regione(vedere Regione)
+    -nazione(vedere Nazione)
     
