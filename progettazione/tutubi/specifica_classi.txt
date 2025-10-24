@@ -1,0 +1,40 @@
+CLASSE UTENTE
+
+[V.UTENTE.VALUTAZIONE]
+
+-per ogni u: Utente si ha un link di associazione (u, v: Valutazione) ut_ val e un link di associazione (v, vi: Video) val_video
+- se e solo se vi è un link di associazione (u, vi) visualizza 
+
+[V.UTENTE.COMMENTO]
+
+-per ogni u: Utente si ha un link di associazione (u, c: Commento) ut_commento e un link di associazione (c, vi:Video) com_video
+-se e sole se vie è un link (u, v) visualizza
+
+[V.UTENTE.PUBBLICA]
+
+-per ogni u: Utente e vi: Video
+-non deve esistere un link di associazione (u, v: Valutazione) ut_val e un link di associazione (v, vi) val_video
+-se u ha un link di associazione (u, vi) pubblica 
+
+CLASSE VIDEO 
+
+numero_v(): intero >= 0
+
+post-condizioni:
+
+-sia E l'insieme dei link di associazione (u: Utente, vi:Video) visualizza
+-sia N la cardinalità di E 
+-result = N
+
+CLASSE CENSURATO
+
+-per ogni ce: Cenusrato
+-può esistere solo link di associazione (u: Utente, ce: Censurato) pubblica
+
+CLASSE PLAYLIST
+
+[V.PLAYLIST.CREAZIONE]
+
+-non esiste p: Playlist che partecipa a dei link di associazione (p, u: Utente) creatore con valore p.data_creazione < u.iscrizione
+
+CLASSE PUBBLICA
