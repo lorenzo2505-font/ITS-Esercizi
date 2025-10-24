@@ -1,0 +1,44 @@
+-Utenti, si vuole sapere:
+    -nome: Stringa
+    -iscrizione: Data
+    -video (vedere req Video)
+
+-Video(può essere Censurato), si vuole sapere:
+    -titolo: Stringa
+    -durata: TimeStamp 
+    -descrizione: Stinga
+    -file: File
+    -tag: TAG
+    -numero_visioni: (Calcolabile)
+    -utente: (vedere req Utente): Intero
+    -categoria (vedere req Categoria)
+
+-Categoria, si vuole sapere:
+    -nome: Stinga
+
+-Cronologia, si vuole sapere:
+    -video (vedere requisito Video)
+    -istante: DataOra
+
+-Valutazione, si vuole sapere:
+    -voto: Voto
+
+-Commento, si vuole sapere:
+    -istante: DataOra
+    -testo: Stringa
+    -video: (vedere requisito video)
+    -utente (vedere req Utente)
+
+-Playlist(può essere Pubblica o Privata), si vuole sapere:
+    -nome: Stringa
+    -data_creazione:Data
+    -utente:(vedere req Utente)
+    -video (vedere req Video)
+
+-Censurato, si vuole sapere :
+    -video: (vedere req Video)
+    -motivo: Stringa
+
+
+
+

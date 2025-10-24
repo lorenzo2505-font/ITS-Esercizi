@@ -1,0 +1,5 @@
+TIPI DI DATO SPECIALIZZATI
+
+FILE: Stringa secondo standard
+TAG: Stringa secondo standard ^[A-Za-z0-9]+$
+VOTO: intero compreso tra 0 e 5
