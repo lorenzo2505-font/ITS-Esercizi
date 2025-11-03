@@ -1,0 +1,29 @@
+prezzo(b: Biglietto) -> Reale >= 0:
+    -pre: nessuna
+    -post: L'operazione non modifica i dati, il risultato result è così definito
+        -sia t: Tariffa tale che esiste il link(b, t): big_tar
+        -sia pb il valore dell'attributo prezzo_base di t 
+        -se b è istanza di Standard, result = pb
+        -se b è istanza di ExtendedAccess:
+            -sia T l'insiem degli oggetti temp: Temporanea tali che esiste un link(b, temp) ext_temp,
+            -sia S la somma di temp.prezzo_accesso per ogni elemento temp nell'insieme t
+            -result = S + pb
+
+
+opere_mai_esposte(a: Artista, inizio: Data, fine: Data): Opera [0..*]:
+    -pre: fine >= inizio
+    -post: l'operazione non modifica in dati, il risultato reuslt è così definito:
+        -esiste il link(o, a):op_art
+        -non esiste nessun link dell'associazione espone che:
+            -il link l coinvolge o 
+            -il period [l.inizio, l.fine] si sovrappone al periodo [inizio, fine]
+
+
+temporanee_più_popolari(inizio: Data, fine: Data): Temporanea[0..*]:
+    -pre: fine >= inizio
+    -post: l'operazione non modifica i dati. il risultato result è così definito:
+        -sia V l'insieme di coppie (temp, n) dove:
+            -temp è istanza della classe Temporanea
+            -n è il numero di link dell'associazione ext_temp che coinvolgono temp e un oggetto b: ExtendedAccess con b.validità compreso tra inizio e fine 
+            -sia M l'insieme delle coppie(temp, n) in V con n massimo
+            -Result è l'insieme delle esposizioni temp incluse nell'insieme M

@@ -1,0 +1,59 @@
+Raffinamento dei requisiti
+
+
+1. Requisiti relativi alle Opere:
+    1.1. nome 
+    1.2. categoria (...)
+    1.3. autore (v. req. 2)
+    1.4. anno realizzazione
+    1.5. tecnica (una stringa, opzionale)
+    1.6. correnti artistiche (almeno una)
+
+2. Requisiti relativi agli Autori (di opere)
+    2.1. nome d'arte
+    2.2. luogo di nascita
+    2.3. data di nascita
+    2.4. data di morte (opzionale)
+    2.5. opere realizzate (v. req. 1), anche nessuna
+
+3. Requisiti relativi alle esposizioni (di opere)
+    3.0. il nome
+    3.1. tipo di esposizione
+        3.1.1. permanente
+        3.1.2. temporanea (v. req. 4)
+    3.2. opere esposte (v. req. 2)
+        3.2.1. per ognuna, date di 
+            3.2.1.1. inizio
+            3.2.1.2. fine (opzionale)
+    3.3 inizio (una data)
+
+4. Requisiti relativi alle esposizioni temporanee
+    4.1. tema (una stringa)
+    4.2. fine (una data)
+    4.3. prezzo di accesso (un reale >= 0)
+
+5. Requisiti relativi alle tariffe
+    5.1. nome
+    5.2. prezzo base (un reale >= 0)
+
+
+6. Requisiti relativi ai biglietti
+    6.1. tariffa scelta (v. req. 5)
+    6.2. istante di acquisto
+    6.3. data di validità
+        (6.3.1. non precedente all'istante di acquisto)
+    6.4. tipo
+        6.4.1. standard (v. req. 7)
+        6.4.2. extended access (v. req. 8)
+
+7. Requisiti relativi ai biglietti di tipo "standard"
+    7.1. dà accesso a *tutte* le esposizioni permanenti
+    7.2. prezzo: uguale al prezzo base della tariffa scelta (v. req. 6.1)
+
+8. Requisiti relativi ai biglietti di tipo "extended access"
+    8.1. dà accesso a *tutte* le esposizioni permanenti
+    8.2. esposizioni temporanee scelte (almeno una)
+    8.3. il prezzo è calcolato come la somma tra
+        - il prezzo base della tariffa scelta (v. req. 6.1)
+        - il prezzo di accesso (v. req. 4.3) di tutte le esposizioni temporanee scelte (v. req. 8.2)
+

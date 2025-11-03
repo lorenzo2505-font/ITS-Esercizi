@@ -1,0 +1,13 @@
+
+CLASSE BIGLIETTO
+
+-esposizioni_valide(): Esposizione [0..*]
+    -pre: nessuna...
+    -post: il risultato result è definito come segue:...
+        -sia P l'insieme deglio oggetti p: Permanente tali chie p.inizio <= this.validità
+        -se this è istanza di Standard result = P
+        -se this è istanza di Extended Access:
+            -sia T l'insieme degli oggetti t: Temporanea tali che
+                -this.validità <= t.fine
+                -esiste un link (this, t): ext_temp
+            - result = P unione T
