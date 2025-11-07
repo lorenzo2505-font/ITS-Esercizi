@@ -1,0 +1,41 @@
+PRIMO USE-CASE 
+
+-   data una categoria, un insieme di tag, ed un intero v tra 0 e 5, si vogliono restituire tutti i video disponibili
+    di quella categoria che posseggono almeno uno tra i tag indicati, e che abbiano una
+    valutazione media di almeno v (se un video non ha ancora alcuna valutazione, deve
+    essere restituito comunque)
+
+primo_calcolo(c: Categoria, t: TAG[1..*], v: reale tra 0 e 5) -> Video[0..*]:
+
+    -pre-condizioni:
+        -se non vi sono link di associazione (val, vi) val_video reuslt = vi
+    
+    -post_condizioni:
+        -il valore di result è definito come segue:
+        -per ogni c: Categoria e vi: Video si E l'insieme dei link di associazione (c, vi) vid_cat contenente almeno un valore di t presente in vi.tag
+        -per ogni val: Valutazione sia F l'insieme dei link di associazione (val, vi) val_video con val.voto >= v
+        -result è uguale alle istanze di vi presenti sia nell'insieme E che nell'insieme F
+
+
+SECONDO USE-CASE 
+
+-   TuTubi deve poi permettere di cercare, data una categoria,
+    i video di quella categoria che hanno il numero maggiore di video in risposta, al fine di
+    isolare le discussioni più animate tra gli utenti.
+
+
+secondo_calcolo(c: Categoria) -> Video:[0..*]
+
+    -pre_condizioni:
+        -...
+    
+    -post_condizioni:
+        -il valore di result è definito come segue:
+        -per ogni vi: Video sia X l'insieme dei link di associazione (vi, vi) video_risposta
+        -sia N la cardinalità di X 
+        -per ogni c: Categoria sia E l'insieme dei link di associazione (c, vi) vid_cat con gli oggetti vi con cardinalità N di X massima
+        -result è uguale agli oggetti vi inclusi nell'insieme E 
+        
+
+
+

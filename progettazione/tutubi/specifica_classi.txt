@@ -2,19 +2,18 @@ CLASSE UTENTE
 
 [V.UTENTE.VALUTAZIONE]
 
--per ogni u: Utente si ha un link di associazione (u, v: Valutazione) ut_ val e un link di associazione (v, vi: Video) val_video
+-per ogni u: Utente, v: Valutazione e vi: Video si ha un link di associazione (u, v) ut_ val e un link di associazione (v, vi) val_video
 - se e solo se vi è un link di associazione (u, vi) visualizza 
 
 [V.UTENTE.COMMENTO]
 
--per ogni u: Utente si ha un link di associazione (u, c: Commento) ut_commento e un link di associazione (c, vi:Video) com_video
--se e sole se vie è un link (u, v) visualizza
+-per ogni u: Utente, c: Commento e vi: Video si ha un link di associazione (u, c) ut_commento e un link di associazione (c, vi) com_video
+-se e sole se vi è un link (u, v) visualizza
 
 [V.UTENTE.PUBBLICA]
 
--per ogni u: Utente e vi: Video
--non deve esistere un link di associazione (u, v: Valutazione) ut_val e un link di associazione (v, vi) val_video
--se u ha un link di associazione (u, vi) pubblica 
+-per ogni u: Utente, vi: Video e v: Valutazione
+-non deve esistere un link di associazione (u, v) ut_val e un link di associazione (v, vi) val_video se u ha un link di associazione (u, vi) pubblica 
 
 CLASSE VIDEO 
 
@@ -29,12 +28,11 @@ post-condizioni:
 CLASSE CENSURATO
 
 -per ogni ce: Cenusrato
--può esistere solo link di associazione (u: Utente, ce: Censurato) pubblica
+-può esistere solo il link associazione (u, ce) pubblica con u: Utente
 
 CLASSE PLAYLIST
 
 [V.PLAYLIST.CREAZIONE]
 
--non esiste p: Playlist che partecipa a dei link di associazione (p, u: Utente) creatore con valore p.data_creazione < u.iscrizione
+-non esiste p: Playlist e u: Utente che partecipano a dei link di associazione (p, u) creatore con valore p.data_creazione < u.iscrizione
 
-CLASSE PUBBLICA
