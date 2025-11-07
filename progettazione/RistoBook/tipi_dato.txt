@@ -1,0 +1,18 @@
+
+
+indirizzo: {
+    Via: Stringa
+    Civico: Intero > 0
+    cap: CAP
+}
+
+Periodo: {
+    inizio: DataOra
+    fine: DataOra
+}
+
+
+CAP: stringa alfanumerica di liunghezza 5
+Piva: stringa numerica di lunghezza 11
+
+Giorno: [lunedì, martedì, mercoledì, giovedì, venerdì, sabato, domenica]

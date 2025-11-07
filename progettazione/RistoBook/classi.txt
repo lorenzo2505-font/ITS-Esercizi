@@ -1,0 +1,40 @@
+CLASSE PRENOTAZIONE
+
+[V.Annullata.entro24Ore] Una prenotazione accettata può essere annullata entro 24 ore precedenti al giorno e ora di prenotazione
+
+-Per ogni pann: Annullata non esiste pann.giorn_pren - pann.istante_ann < "24 ore"
+
+[V.Prenotazione.istante_prenMinoreGiorno_pren]
+
+-Per ogni p: Prenotazione deve essere p:istante_pren <= giorno.pren 
+
+[V.Accettata.istante_accMaggioreIstante_pren]
+
+-Per ogni p: Accettata deve essere p.istante <= p.istante_acc.
+
+[V.Rifiutata.istante_accMaggioreIstante_pren]
+-...
+
+[V.Completata.istante_accMinoreIstante_acc]
+- ...
+
+[V.NonUtilizzata.istante_accMinoreIstante_acc]
+- ...
+
+[V.Annullata.istante_accMinoreIstante_acc]
+-...
+
+PRENOTAZIONE
+[V.Promozione.orariValidi] per ogni p: Promozione deve essere p.ora_inizio < p.ora_fine
+
+VINCOLI ESTERNI
+
+[V.PrenotazioneCliente.prenotazioniNonConcorrenti]
+
+-Per ogni c: Cliente, p1: Prenotazione, p2: Prenotazione tale che p1 != p2 (c, p1) cl_plen, (c, p2): cl_plen deve essere che p1.giorno_pren != p2.giorno_pren.
+
+[V.PromozioneRistorantePrenotazione.max_coperti]
+
+
+
+

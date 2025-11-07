@@ -1,0 +1,45 @@
+-Clienti, si vuole sapere:
+    -nome
+    -email
+
+-Ristorante, si vuole sapere:
+    -nome
+    -Partita IVA Stringa Numerica
+    -indirizzo
+    -città
+    -cucine offerte (lista amministrata dallo staff)
+    -giorni e orari di chiusura 
+
+-Prenotazioni:
+    -data
+    -ora
+    -numero di commensali
+    -lo stato della prenotazione:
+        -nasce nello stato pendente
+        -se accetata o rifiutata
+        -se completata (quando il cliente si presenta) o se non utilizzata (quando il cliente non si presenta)
+        -se annullata (entro le 24 h precedenti all'inizio prenotazione)
+    -promozione applicata (anche nessuna) (v.req.Promozione)
+
+-Promozioni:
+    -percentuale di sconto applicata
+    -ristorante (v.req.Ristorante)
+    -periodo (data inizio e data fine)
+    -giorni della settimana e ora inzio/ora fine
+    -numero massimo di coperti al giorno 
+
+
+
+999.Funzionalità:
+    -Al momento della prenotazione, il cliente seleziona una (o nessuna) delle possibili Prenotazioni
+
+    -Il sistema deve permettere ristoratori di RistoBook di calcolare alcune statistiche
+    di utilizzo delle loro promozioni. In particolare, dato un periodo di tempo, RistoBook deve permettere calcolare, per ogni promozione del ristorante considerato, il 
+    numero medio di clienti al giorno (dove la media è calcolata sui giorni di validità
+    della promozione) che ha utilizzato quella promozione in una prenotazione
+
+    -Data una città x, un insieme di tipologie di cucina C, un tasso di sconto minimo
+    s ed una data d, i clienti devono poter trovare quali sono i ristoranti nella città x
+    che offrono almeno una delle tipologie di cucina in C e prevedono promozioni con 45
+    sconti di tasso almeno s nella data d ancora utilizzabili per il numero di coperti
+    che sono interessati a prenotare.
