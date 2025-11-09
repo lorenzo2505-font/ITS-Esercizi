@@ -1,0 +1,22 @@
+TIPI DI DATO SPECIALIZZATI
+
+Telefono: Stringa numerica secondo standard
+
+email: stringa secondo standard
+
+CAP: Stringa numerica di 5 caratteri
+
+Posti: intero compreso tra 1 e 8
+
+Indirizzo: {
+    via: Stringa
+    civico: Intero > 0
+    cap: CAP
+}
+
+Recapito: {
+    telefono: Telefono
+    email: Email
+    indirizzo: Indirizzo
+}
+

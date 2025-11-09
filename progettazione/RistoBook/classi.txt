@@ -4,6 +4,7 @@ CLASSE PRENOTAZIONE
 
 -Per ogni pann: Annullata non esiste pann.giorn_pren - pann.istante_ann < "24 ore"
 
+
 [V.Prenotazione.istante_prenMinoreGiorno_pren]
 
 -Per ogni p: Prenotazione deve essere p:istante_pren <= giorno.pren 
@@ -12,19 +13,22 @@ CLASSE PRENOTAZIONE
 
 -Per ogni p: Accettata deve essere p.istante <= p.istante_acc.
 
-[V.Rifiutata.istante_accMaggioreIstante_pren]
--...
+[V.Annullata.nonCompletataONonUtilizzata] una prenotazione di istanza Annullata ne Completata ne NonUtilizzata
+-non esiste pan: Annullata tale che pan:Completata oppure pan:NonUtilizzata
+
+[V.Rifiutata.giorno_pren]
+-per ogni r: Rifiutata e p: Prenotazione p.giorno_pren.FasciaOraria.da
+
+
 
 [V.Completata.istante_accMinoreIstante_acc]
-- ...
+- per ogni c: Completata e a: Accettata a.istante_acc <= c.istante_compl
 
 [V.NonUtilizzata.istante_accMinoreIstante_acc]
-- ...
+- per ogni n: Nonutilizzata e a: Accettata a.istante_acc <= n.isttante_nu
 
-[V.Annullata.istante_accMinoreIstante_acc]
--...
 
-PRENOTAZIONE
+CLASSE PROMOZIONE
 [V.Promozione.orariValidi] per ogni p: Promozione deve essere p.ora_inizio < p.ora_fine
 
 VINCOLI ESTERNI
@@ -33,7 +37,46 @@ VINCOLI ESTERNI
 
 -Per ogni c: Cliente, p1: Prenotazione, p2: Prenotazione tale che p1 != p2 (c, p1) cl_plen, (c, p2): cl_plen deve essere che p1.giorno_pren != p2.giorno_pren.
 
-[V.PromozioneRistorantePrenotazione.max_coperti]
+[V.ChiusuraRistorante.Periodo]
+- per ogni r: Ristorante, pre: Prenotazione, pro: Promozione e ch: Chiusura
+- non esistiono i link di associazion (r, pre) pren_rist (pre, pro) prem_prom e (r, pro) rist_prom
+- se r è coinvolto in un link di associazione (r, ch) rist_chius del periodo ch.periodo
+
+[V.PromozionePrenotazione.max_coperti] il numero massimo di prenotazioni che utilizzano una certa promozione è uguale a promozione.max_coperti
+-non esiste d: Data che is_superato(d) = True
+
+count_vendute(i: Data): Intero >= 0
+    -pre-condizioni:
+        -...
+    -post-condizioni:
+        -Sia P l'insiem delle p: Prenotazione tale che (p, this): pren_prom, p.giorno_pern.data = d, e p: Completata, P: Accettata
+        -il risultato è la somma di p.n_pers, in p
+
+is_superato(i: DataOra): Booleano
+    -pre_condizioni:
+        -...
+    -post_condizioni:
+        -se this.count_vendute() >= p.max_coperti result = True
+        -in alternativa result = False 
+
+
+
+[V.PrenotazioneRistoranteValida]
+
+-per ogni istanza p: Prenotazione e r: Ristorante tale che (p,r) pren_rist, 
+-p.giorno_pren.ora >= r.apertura.fascia_oraria.da e p.giorno_pren.ora <=
+-r.apertura.fascia_oraria.a e p.giorno_pren.data.giorno = r.apertura.giorno 
+
+[V.PromozionePrenotazioneValida]
+Le prenotazioni che utilizzano una promozione, devono essere comprese in un periodo valido e in un giorno/fascia oraria in cui la promozione si applica
+
+-per ogni istanza pre: Prenotazione e pro:Promozione si ha un link di associazione (pre, pro) pren_prom tale che
+-pre.giorno_pren.ora >= pro.validità.fascia_oraria.da e pre.giorno_pren.ora <= pro.validità.fascia_oraria.a
+-e pre.giorno_pren.data.giorno = pro.apertura.giorno 
+
+
+
+
 
 
 

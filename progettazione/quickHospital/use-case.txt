@@ -1,0 +1,33 @@
+PRIMO USE-CASE 
+
+primo_calcolo()
+    
+    -pre-condizioni:
+        -...
+    
+    -post-condizioni:
+        -il valore di result è definito come segue:
+        -per ogni m: Medico e p: Paziente sia E l'insieme dei link di associazione (m, p) cura
+        -sia F l'insieme dei link di associazione in cui p è coinvolto con s:Stanza tale che (p, s) p_stanza nell'insieme E 
+        -sia G l'insieme di coppie di valori (s.piano, s.settore) ordinate in ordine crescente per G.s.piano e poi per G.s.settore nell'insieme F 
+        -result = G
+
+
+SECONDO USE-CASE 
+
+secondo_calcolo(s: Specializzazione): Medico[1..*]
+
+    -pre-condizioni
+        -...
+    
+    -post-condizioni:
+        -il valore di result è definito come segue:
+        -per ogni m:Medico sia E l'insieme dei link di associazione (m, s) med_spec in cui m è coinvolto  
+        -sia X l'insieme in cui ogni istanza di s è Primaria nell'insieme E 
+        -Sia N la cardinalità di X
+        -sia Y l'insieme in cui ogni istanza di s è Secondaria nell'insieme E
+        -se N > 0 result = X
+        -in alternativa result = Y
+
+
+

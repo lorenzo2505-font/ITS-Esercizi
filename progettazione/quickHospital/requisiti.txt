@@ -1,0 +1,24 @@
+-Paziente, si vuole sapere:
+    -nome: Stringa
+    -cognome: Stringa
+    -nascita: Data
+    -recapiti: Recapito (unico)
+    -is_recoverabile (calcolabile)
+
+-Medico, si vuole sapere:
+    -nome: Stringa
+    -cognome: Stringa
+    -nascita: Data
+    -pazienti(ved.req.Paziente)
+
+-Stanza, si vuole sapere:
+    -posti: Posti
+    -piano: Intero > 0
+    -settore: Intero > 0
+
+-Prestazioni, si vuole sapere:
+    -specializzazione (vedere Specializzazione)
+    -descrizione: Stringa
+
+-Specializzazione(può essere Primaria o Secondaria), si vuole sapere:
+    -nome: Stringa

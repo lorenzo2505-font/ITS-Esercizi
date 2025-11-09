@@ -1,0 +1,25 @@
+SPECIFICA DELLA CLASSE PERSONA 
+
+PAZIENTE
+
+is_recoverabile(d: Data): Booleano
+
+    -pre-condizioni:
+        -...
+
+    -post-condizioni:
+        -il valore di result è definito come segue:
+        -per ogni p: Paziente e s: Stanza sia E l'insieme dei link di associazione (p, s) p_stanza nella data d 
+        -sia N la cardinalità di E
+        -se N < s.posti result = true
+        -in alternativa result = false 
+
+
+VINCOLI ESTERNI
+
+[V.PazienteStanza]
+
+# primo modo- per ogni p: Paziente e s: Stanza in una data d non esiste un link di associazione (p, s) p_stanza se p.is_recoverabile(d) = false 
+
+# secondo modo- in una data d non esiste un link di associazione tra p: Paziente e s: Stanza tale che (p, s) p_stanza se p.is_recoverabile(d) = false 
+

@@ -6,9 +6,16 @@ indirizzo: {
     cap: CAP
 }
 
-Periodo: {
-    inizio: DataOra
-    fine: DataOra
+
+
+FasciaOraria: {
+    da: Ora 
+    a: Ora
+}
+
+Periodo : {
+    giorno: Giorno
+    fascia_oraria: FasciaOraria[1..*]
 }
 
 
@@ -16,3 +23,6 @@ CAP: stringa alfanumerica di liunghezza 5
 Piva: stringa numerica di lunghezza 11
 
 Giorno: [lunedì, martedì, mercoledì, giovedì, venerdì, sabato, domenica]
+
+Sconto: Reale tra 0 e 1 
+

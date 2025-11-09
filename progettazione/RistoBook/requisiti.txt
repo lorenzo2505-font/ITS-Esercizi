@@ -8,7 +8,8 @@
     -indirizzo
     -città
     -cucine offerte (lista amministrata dallo staff)
-    -giorni e orari di chiusura 
+    -giorni e orari di chiusura
+    -ristoratore (propietario) 
 
 -Prenotazioni:
     -data
