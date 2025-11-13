@@ -1,0 +1,47 @@
+PRIMO USE-CASE 
+
+-In particolare, il sistema deve permettere di calcolare, su richiesta di un medico, il
+suo itineriario delle visite, ovvero un insieme ordinato delle stanze cui accedere (che sono 20
+tutte e sole le stanze che ospitano i pazienti che ha in cura).
+L’ordinamento è dato in primo luogo dal piano delle stanze dei pazienti da visitare, ed
+in secondo luogo dal settore di appartenenza di tali stanze (entrambi in ordine crescente).
+I settori sono infatti numerati secondo un criterio di vicinanza topologica. Pertanto se
+un dato medico deve visitare le stanze {(7, 4),(7, 1),(1, 3),(1, 1),(3, 4)} dove la prima 25
+componente di ognuna è il piano e la seconda il settore, l’itinerario di visita proposto
+deve essere [(1, 1),(1, 3),(3, 4),(7, 1),(7, 7)].
+
+primo_calcolo(m: Medico) (Intero > 0, Intero > 0)[0..*]
+
+    -pre-condizioni:
+        -...
+    
+    -post-condizioni:
+        - sia S1 l'insieme di oggetti r: Ricovero coinvolti in un link di associazione con m tale che (r, m) med_ric
+        - sia S2 l'insieme di ogetti l: Letto coinvolti in un link di associazione con r tale che (l, r) let_ric con r in S1 
+        - sia S3 l'insieme di oggetti s: Stanza coinvolti in un link di associazion con l tale che (s, l) let_st con l in S2
+        - il valore di result è l'insieme di coppie (s.piano, s.settore) ordinate in ordine crescente per s.paino e per s.settore per ogni s in S3
+
+
+
+
+
+SECONDO USE-CASE
+
+-Data una prestazione richiesta da un paziente esterno (per una specializzazione s), il
+sistema deve restituire l’insieme dei medici maggiormente idonei a soddisfarla. Il criterio
+di idoneità è il seguente: se esistono medici con specializzazione primaria pari ad s, il
+risultato è l’insieme di tali medici. Altrimenti, il risultato è l’insieme dei medici che hanno
+s tra le loro specializzazioni secondarie.
+
+secondo_calcolo(s: Specializzazione): Medico[0..*]
+
+    pre-condizioni:
+        -...
+    
+    post-condizioni:
+        - il valore di result è definito come segue 
+        - sia P l'insieme di oggetti m: Medico coinvolti in un link di associazione con s: Specializzazione tale che (m, s) primaria
+        - sia N la cardinalità di P 
+        - sia S l'insieme degli oggetti m coinvolti in un link di associazione con s tale che (m, s) med_spec
+        - se N > 0 result = P
+        - in alternativa result = S 

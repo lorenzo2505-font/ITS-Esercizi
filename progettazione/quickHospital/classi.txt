@@ -23,3 +23,15 @@ VINCOLI ESTERNI
 
 # secondo modo- in una data d non esiste un link di associazione tra p: Paziente e s: Stanza tale che (p, s) p_stanza se p.is_recoverabile(d) = false 
 
+
+
+VERSIONE PROF
+
+[V.PAZIENTE.LETTO]
+
+r: Ricovero
+s: Stanza 
+l: Letto
+
+(l, r): let_ric 
+(l, s): let_st 

@@ -1,0 +1,16 @@
+SPECIFICHE DI CLASSE
+
+CLASSE VIDEO 
+
+
+get_media_valutazioni(): Reale >= 0:
+
+    pre_condizioni:
+        - U ha almeno un elemento 
+    
+    post-condizioni:
+        -sia U l'insieme di ogetti u: Utente coinvolti in un link di associazione con this tale che (u, this) valutazione
+        -sia sum la somma di ogni valutazione.voto in U 
+        -sia N la cardinalità di U 
+        -result = sum/N 
+

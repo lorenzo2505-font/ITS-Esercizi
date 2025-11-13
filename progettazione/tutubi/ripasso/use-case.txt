@@ -1,0 +1,56 @@
+SPECIFICHE 
+
+-A tal fine, il sistema
+deve permettere ad ogni utente di ottenere le playlist pubbliche di un altro utente a sua
+scelta.
+
+ottieni_playlist(u: Utente): Playlist[0..*]
+    
+    -pre-condizioni:
+        -...
+    
+    -post-condizioni:
+        -sia E l'insieme degli oggetti p: Playlist coinvolti in un link di associazione con u tale che (p, u) ut_playlist 
+        -result = E 
+
+
+
+-data una categoria, un insieme di tag, ed un intero v tra 0 e 5, si vogliono restituire tutti i video disponibili
+    di quella categoria che posseggono almeno uno tra i tag indicati, e che abbiano una
+    valutazione media di almeno v (se un video non ha ancora alcuna valutazione, deve
+    essere restituito comunque)
+
+
+get_video_by_categoria (c: Categoria, t: TAG[1..*], v: reale tra 0 e 5): Video[0..*]
+
+    pre-condizioni:
+        -...
+    
+    post-condizioni:
+        -sia V1 l'insieme degli oggetti vi: Video coinvolti in un link di associazione con c tale che (vi, c) vid_cat 
+        -sia V2 l'insieme degli ogetti vi coinvolti in un link di associazione con t tale che (vi, t) vid_tag con vi in V1
+        -sia V3 l'insieme di oggetti vi con vi.get_media_valutazioni() >= v 
+        -Result V3 
+
+
+get_visualizzazioni(): intero >= 0
+
+    -pre-condizioni:
+        -...
+    
+    -post-condizioni:
+        -sia E l'insieme degli oggetti vis: Visualizzazione coinvolti in un link di associazione con this tale che (vis, this) vid_vis
+        -sia N la cardinalità di E
+        -result = N
+
+
+get_cronologia(): Video[0..*]
+
+    -pre-condizioni:
+        -...
+    
+    -post-condizioni:
+        -sia E l'insieme di oggetti vis: Visualizzazione coinvolti in un link di associazione con this tale che (vis, this) ut_vis 
+        -sia F l'insieme degli oggetti vid: Video coinvolti in un link di associazione con vis tale che (vid, vis) vis_vid con vis in E 
+        -result = F
+

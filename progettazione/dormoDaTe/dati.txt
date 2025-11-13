@@ -1,0 +1,10 @@
+TIPI DI DATO 
+
+Sesso: {Maschio, Femmina}
+
+
+
+Periodo : {
+    inizio: Dataora
+    fine: Dataora
+}

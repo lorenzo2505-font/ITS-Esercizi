@@ -32,7 +32,7 @@
 
 
 999.Funzionalità:
-    -Al momento della prenotazione, il cliente seleziona una (o nessuna) delle possibili Prenotazioni
+    -Al momento della prenotazione, il cliente seleziona una (o nessuna) delle possibili promozioni
 
     -Il sistema deve permettere ristoratori di RistoBook di calcolare alcune statistiche
     di utilizzo delle loro promozioni. In particolare, dato un periodo di tempo, RistoBook deve permettere calcolare, per ogni promozione del ristorante considerato, il 

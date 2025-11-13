@@ -13,8 +13,13 @@ primo_calcolo(c: Categoria, t: TAG[1..*], v: reale tra 0 e 5) -> Video[0..*]:
     -post_condizioni:
         -il valore di result è definito come segue:
         -per ogni c: Categoria e vi: Video si E l'insieme dei link di associazione (c, vi) vid_cat contenente almeno un valore di t presente in vi.tag
-        -per ogni val: Valutazione sia F l'insieme dei link di associazione (val, vi) val_video con val.voto >= v
-        -result è uguale alle istanze di vi presenti sia nell'insieme E che nell'insieme F
+        -per ogni val: Valutazione sia F l'insieme dei link di associazione (val, vi) val_video
+            -per ogni val in F:
+                -sia sum la somma di val.valutazione
+                -sia N la cardinalità di F 
+                -sia M = sum/N 
+        - sia G l'inseme degli oggetti di vi in F con M >= v
+        -result = G
 
 
 SECONDO USE-CASE 
@@ -33,8 +38,35 @@ secondo_calcolo(c: Categoria) -> Video:[0..*]
         -il valore di result è definito come segue:
         -per ogni vi: Video sia X l'insieme dei link di associazione (vi, vi) video_risposta
         -sia N la cardinalità di X 
-        -per ogni c: Categoria sia E l'insieme dei link di associazione (c, vi) vid_cat con gli oggetti vi con cardinalità N di X massima
-        -result è uguale agli oggetti vi inclusi nell'insieme E 
+        - per ogni vi nell'insieme X sia E l'insieme dei link di associazione con c: Categoria (c, vi) vid_cat con gli oggetti vi con cardinalità N Massima
+        -result = E
+
+TERZO USE-CASE
+-A tal fine, il sistema
+deve permettere ad ogni utente di ottenere le playlist pubbliche di un altro utente a sua
+scelta.
+
+terzo_calcolo(u: Utente): p: Pubblica
+
+    -pre-condizioni:
+        
+    
+    -post-condizioni:
+        -sia E l'insieme dei link di associazione che ha u con p:Pubblica tale che (u, p) ut_pub
+        -result = E
+
+
+VERSIONE PROF
+
+
+get_superlative_video(c: Categoria): Video
+    precondizioni:
+    postcondizioni:
+        - sia VC l'insieme dei v: Video t.c (c, v): cat_vid
+        - per ogni v in VC:
+        - soa V l'insieme delle coppie v, s t.c. v in VC e s è, dato l'insieme R di v': Video t.c 
+        -(v, v') vid_vis, se è la cardinalità di R(|R|)
+
         
 
 

@@ -1,0 +1,42 @@
+CLASSI 
+
+CLASSE STANZA
+
+n_posti_letto(): Intero > 0
+
+    -pre-condizioni:
+        -...
+    
+    -post-condizioni:
+        -il valore di result è definito come segue...
+        -sia E l'insieme degli oggetti l: Letto coinvolti in un link di associazione con this tale che (l, this) let_st 
+        -sia N la cardinalità di E 
+        -result = E
+
+n_ricoveri_attivi(): Intero >= 0
+
+    -pre-condizioni:
+        -...
+    
+    -post-condizioni:
+        -il valore di result è definito come segue...
+        -sia E l'insieme degli oggetti r: Ricovero coinvolti in un link di associazione con l: Letto tale che (r, l) let_ric con r.fine[0]
+        -sia F l'insieme degli oggetti l coinvolti in un link di associazione con this tale che (l, this) let_st con l in E
+        -sia N la cardinalità di F 
+        -result = N 
+
+
+VINCOLI ESTERNI 
+
+[V.PAZIENTE.RICOVERO]
+
+# versione inutilmente troppo lunga 
+
+-sia E l'insieme degli oggetti r: Ricovero coinvolti in un link di associazione con l: Letto tale che (r, l) let_ric
+-sia F l'insieme degli oggetti l coinvolti in un link di associazione con s: Stanza tale che (l, s) let_st con l in E
+-nell'insieme F r è coinvolto in un link di associazione con p: Paziente tale che (p, l) paz_ric se solo se s.n_posti_letto() > s.n_ricoveri_attivi()
+
+# versione breve
+
+- per ogni s: Stanza deve essere che s.n_posti_letto() >= s.n_ricoveri_attivi()
+

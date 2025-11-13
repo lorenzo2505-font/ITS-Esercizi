@@ -1,0 +1,95 @@
+PRIMO USE-CASE 
+
+Al momento della prenotazione, il cliente seleziona una (o nessuna) delle possibili promozioni
+
+primo_calcolo(r: Ristorante, i: DataOra): Promozione[0..*]
+
+    pre_condizioni:
+        -...
+    
+    post_condizioni:
+        -il valore di result è come segue
+        -per ogni r sia E l'insieme dei link associazione con pro:Promozione tale che (r, pro) rist_prom con... 
+        -pro.da <= i.data <= pro.a 
+        -e pro.validità.FasciaOraria.a <= d <= pro.validità.FasciaOraria.a
+        -d.data.giorno = pro.validità.giorno
+        -result = le istanza di pro in E
+
+    VERSIONE PROF
+    
+    get_prom(r: Ristorante, d: Data, o:Ora): Prom[0..*]
+
+        post-condizioni:
+            -il valore di result è definito come segue:
+            -sia E l'insieme delle p:Promozione coinvolte in un link di associazione (p, r) rist_prom tali che...
+            -p.da <= d <= p.a
+            -per ogni "da" e "a" in p.val.FasciaOraria: 
+                -o >= da e 
+                -o <= a 
+            -result = e
+
+
+SECONDO USE-CASE
+
+Il sistema deve permettere ristoratori di RistoBook di calcolare alcune statistiche
+di utilizzo delle loro promozioni. In particolare, dato un periodo di tempo, RistoBook deve permettere calcolare,
+per ogni promozione del ristorante considerato, il 
+numero medio di clienti al giorno (dove la media è calcolata sui giorni di validità
+della promozione) che ha utilizzato quella promozione in una prenotazione
+
+secondo_calcolo(r: Ristorante, da: Data, a: Data): Reale >= 0
+    
+    pre-condizioni:
+        -...
+    
+    post-condizioni:
+        -il valore di result è definito come segue:
+        -sia P l'insieme delle pro: Promozione coinvolte in un link di associazione (pro, r) prom_rist tali che...
+        -pro.a > da e prod.da < a
+        -per ogni pro.validità.giorno nell'insieme P:
+            -sia S l'insieme degli oggetti pre: Prenotazione coinvolte in un link di associazione (pre, pro) pren_prom
+            -sia sum la somma di di ogni pre.n_persona nell'insieme S
+            -sia N la cardinalità di S
+            -result = S/N
+    
+    VERSIONE PROF
+
+    get_stats(r: Ristorante, da: DataOra, a: DataOra): Reale > 0
+
+        pre-condizioni:
+            - GV deve avere contenere almeno un elemento e p > 0 
+        
+        post-condizioni:
+            -sia Prom l'insieme delle p: Promozione tale che (p, r) prom_rist e da >= p.da e a <= p.a.
+            -sia Pren l'insieme dell p: Prenotazioni tali che (p, prom) dove prom in Prom
+            -P è la somma di pren.n_pers tale che pren in Pren
+            -sia G l'insieme dei giorni tali che d >= da e d <= a
+            -per ogni d in G:
+                -sia GV l'insieme d tale che d.giorno in p.validità.giorno, dove p in Prom
+            -resutl = P / |GV|
+
+
+
+TERZO USE-CASE
+
+Data una città x, un insieme di tipologie di cucina C, un tasso di sconto minimo
+s ed una data d, i clienti devono poter trovare quali sono i ristoranti nella città x
+che offrono almeno una delle tipologie di cucina in C e prevedono promozioni con
+sconti di tasso almeno s nella data d ancora utilizzabili per il numero di coperti
+che sono interessati a prenotare.
+
+CON PROF
+
+get_ristoranti(x: Città, c: Cucina[1..*], s: Sconto, d: Data, coperti: intero > 0): r: Ristorante[0..*]
+
+    pre-condizioni:
+        -...
+    
+    post-condizioni:
+        - sia R1 dei r: Ristoranti tali che (r, x) cit_rist
+        - sia R2 l'insieme dei r: Ristoranti tali che (r, c) cuc_rist dove c in C e r in R1
+        - sia P l'insieme delle p: Promozioni tale che (p, r) rist_prom dove r in R2 dove...
+        -p.sconto >= s e p.da.data <= d <= p.a.data e p.count_vendute(adesso) + coperti <= p.max_coperti
+        -result = P
+
+

@@ -15,19 +15,23 @@ primo_calcolo()
 
 SECONDO USE-CASE 
 
+-Data una prestazione richiesta da un paziente esterno (per una specializzazione s), il
+sistema deve restituire l’insieme dei medici maggiormente idonei a soddisfarla. Il criterio
+di idoneità è il seguente: se esistono medici con specializzazione primaria pari ad s, il
+risultato è l’insieme di tali medici. Altrimenti, il risultato è l’insieme dei medici che hanno
+s tra le loro specializzazioni secondarie.
+
 secondo_calcolo(s: Specializzazione): Medico[1..*]
 
     -pre-condizioni
         -...
     
     -post-condizioni:
-        -il valore di result è definito come segue:
-        -per ogni m:Medico sia E l'insieme dei link di associazione (m, s) med_spec in cui m è coinvolto  
-        -sia X l'insieme in cui ogni istanza di s è Primaria nell'insieme E 
-        -Sia N la cardinalità di X
-        -sia Y l'insieme in cui ogni istanza di s è Secondaria nell'insieme E
-        -se N > 0 result = X
-        -in alternativa result = Y
+        -sia P l'insieme di oggetti m: Medico coinvolti in un link di associazione con s tale che (m, s) primaria
+        -sia S l'insieme degli oggetti m coinvolti in un link di associazione con s tale che (m, s) secondaria
+        -sia N la cardinalità di P
+        -se N > 0 result = P 
+        -in alternativa result = S
 
 
 

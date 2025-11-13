@@ -1,0 +1,32 @@
+SPECIFICA DELLE CLASSI 
+
+
+VINCOLI ESTERNI 
+
+[V.VALUTAZIONE.VIAGGIATORE]
+- per ogni link di associazione tra u:Utente e p:Prenotazione tale che (u, p) responsabile
+- si ha feedback.valutazione_viaggiatore[1..1] se e solo se 
+- p.a <= adesso 
+
+[V.VALUTAZIONE.OSPITANTE]
+- per ogni link di associazione tra u:Utente e p:Prenotazione tale che (u, p) responsabile
+- si ha feedback.ospitante[1..1] se e solo se 
+- p.a <= adesso
+
+
+[V.VALUTAZIONE.PRENOTAZIONENUOVA]
+
+
+- sia E l'insieme dei link di associazione tra u: Utente e p:Prenotazione tale che (u, p) responsabile
+- se si ha un elemento feedback.valutazione_viaggiatore[0..1] nell'insieme E
+- non esiste un nuovo link di associazione responsabile incluso nell'insieme E 
+
+
+[V.UTENTE.PRENOTAZIONE.INDISPONIBILITÀ]
+
+-per ogni u: Utente,  p: Prenotazione, l: Letto, c: Camera, a: Abitazione
+-si hanno i link di associazione (u, p) Responsabile, (p, l) pren_letto, (l, c) cam_letto e  (c, a) ab_cam se e solo se
+- p.da >= a.indisponibilità.fine e p.a < indisponibilità.inizio 
+
+
+

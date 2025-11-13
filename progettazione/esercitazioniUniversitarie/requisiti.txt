@@ -1,0 +1,17 @@
+-Corso, si vuole sapere:
+    -nome
+    -crediti formativi
+    -docenti(vedere.req.Docente)
+    -anno
+
+-Docente
+
+-Esercitazione, si vuole sapere:
+    -codice 
+    -esercizi(vedere.req.Esercizio)
+
+-Esercizio, si vuole sapere:
+    -testo
+    -soluzione[0..1]
+    -esercitazioni di presentazione (vedere.req.Esercitazione)
+    -esercitazioni di soluzione (vedere.req.Esercitazione)

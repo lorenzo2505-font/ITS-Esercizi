@@ -1,19 +1,3 @@
-CLASSE UTENTE
-
-[V.UTENTE.VALUTAZIONE]
-
--per ogni u: Utente, v: Valutazione e vi: Video si ha un link di associazione (u, v) ut_ val e un link di associazione (v, vi) val_video
-- se e solo se vi è un link di associazione (u, vi) visualizza 
-
-[V.UTENTE.COMMENTO]
-
--per ogni u: Utente, c: Commento e vi: Video si ha un link di associazione (u, c) ut_commento e un link di associazione (c, vi) com_video
--se e sole se vi è un link (u, v) visualizza
-
-[V.UTENTE.PUBBLICA]
-
--per ogni u: Utente, vi: Video e v: Valutazione
--non deve esistere un link di associazione (u, v) ut_val e un link di associazione (v, vi) val_video se u ha un link di associazione (u, vi) pubblica 
 
 CLASSE VIDEO 
 
@@ -25,14 +9,64 @@ post-condizioni:
 -sia N la cardinalità di E 
 -result = N
 
-CLASSE CENSURATO
+
+
+VINCOLI ESTERNI 
+
+[V.UTENTE.VALUTAZIONE]
+Un utente per poter valutare un video deve prima visualizzarlo.
+
+-per ogni u: Utente e val: Valutazione e vid: Video si hanno i link di associazione(u, val): ut_val e (val, vid): val_vid se e solo se...
+-u è coinvolto in un link di associazione vis: Visualizzazione tale che (u, vis): ut_vis e...
+-vis è coinvolto in almeno un link di associazione con vid tale che (vis, vid) vis_video. 
+
+[V.UtenteValutazione.autovalutazione]
+Un utente non può valutare un video pubblicati da lui.
+-per ogni u: Utente, val: Valutazione e vid: Video
+-non esistono i link di associazione (u, val) ut_val e (val: Valutazione, v: Video): val_vid
+-se esiste il link di associazione (u, vid): pubblica.
+
+[V.UTENTE.COMMENTO]
+
+-per ogni u: Utente, c: Commento e vi: Video si hanno i link di associazione (u, c) ut_commento e (c, vi) com_video se e solo se...
+-u è coinvolto in un link di associazione vis: Visualizzazione tale che (u, vis): ut_vis e...
+-vis è coinvolto in almeno un link di associazione con vid tale che (vis, vid) vis_video. 
+
+[V.CENSURATO.UTENTE]
 
 -per ogni ce: Cenusrato
 -può esistere solo il link associazione (u, ce) pubblica con u: Utente
-
-CLASSE PLAYLIST
 
 [V.PLAYLIST.CREAZIONE]
 
 -non esiste p: Playlist e u: Utente che partecipano a dei link di associazione (p, u) creatore con valore p.data_creazione < u.iscrizione
 
+VERSIONE PROF 
+
+Operazioni Classe 
+
+get_cronologia(): Video[0..*]
+
+    -pre-condizioni:
+        -...
+    
+    -post-condizioni:
+        -sai Vis l'insieme delle vis: Visualizzazione tali che (this , vis): ut_vis
+        -sia V l'insieme dei v: Video tali che (v, vis) vid_vis e vis in Vis 
+        -result è l'insiem V ordinato(crescente/decrescente) per v.istante_vis
+
+
+Vincoli Esterni 
+
+[V.Utente.valutazioneNonSenzaVisualizzazione]
+
+-per ogni v: Video e u: Utente t.c. (v, u): Valutazione deve esistere vis di Valutazione tale che....
+-(v, vis): vid_vis e (u, vis): ut_vis 
+
+
+[V.UtenteVideo.valutazioneNonSuiSuoiVideo]
+...
+
+[V.Censurato.nonVisualizzatoDopoIstante]
+
+-Non esiste v: Censurato, vis: Visualizzazione, u: Utente tale che (v, vis) vid_vis (u, v) ut_vis

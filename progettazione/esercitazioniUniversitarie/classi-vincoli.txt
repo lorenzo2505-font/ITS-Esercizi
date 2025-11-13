@@ -1,0 +1,13 @@
+VINCOLI ESTERNI
+
+[V.SOLUZIONE.DATA]
+
+-per ogni p:Presentazione e s: Soluzione, non esiste un oggetto s con s.data < p.data 
+
+[V.PRESENTAZIONE.SOLUZIONE]
+
+-per ogni e: Esercitazione, p: Presentazione, s: Soluzione e es: Esercizio 
+-si hanno i link di associazione (e, s) es_sol e (s, es) sol_es se e sol se
+-e è coinvolto in un link di associazione p tale che (e, p) e_pres
+-e p è coinvolto in un link di associazion con es tale che (p, es) pres_ es
+

@@ -1,0 +1,40 @@
+-Utente, si vuole sapere:
+	-nome
+	-cognome
+	-sesso
+	-citta(vedere.req.città)
+	-posti letto(vedere.req.posti letto)
+
+-Abitazione dell'utente, si vuole sapere:
+	-distanza dal centro 
+	-distanza dal mezzo più vicino 
+	-membri famiglia
+	-periodo di indisponibilità
+
+Letto, si vuole sapere:
+	-tipo 
+
+camera, si vuole sapere:
+	-tipo
+
+-Città, si vuole sapere:
+	-nome
+
+-Prenotazione, si vuole sapere:
+    -da 
+    -a 
+	-se rifutata:
+		-motivo
+
+
+-Funzionalità del sistema:
+	-I viaggiatori che desiderano organizzare un viaggio usufruendo del servizio devono
+	poter interrogare il sistema per ottenere l’insieme di tutti gli iscritti della città desiderata
+	che sono disposti a ricevere ospiti nel periodo richiesto e hanno, per le date richieste,
+	posti sufficienti disponibili. (USE-CASE)
+
+	-il sistema deve fare in modo che un viaggiatore non possa
+	prenotare più alcuna nuova sistemazione se non ha valutato tutti gli ospitanti presso cui
+	ha alloggiato. (VINCOLO ESTERNO)
+
+

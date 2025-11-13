@@ -1,0 +1,18 @@
+SPECIFICA USE-CASE 
+
+PRIMO USE-CASE 
+
+-I viaggiatori che desiderano organizzare un viaggio usufruendo del servizio devono
+	poter interrogare il sistema per ottenere l’insieme di tutti gli iscritti della città desiderata
+	che sono disposti a ricevere ospiti nel periodo richiesto e hanno, per le date richieste,
+	posti sufficienti disponibili. (USE-CASE)
+
+
+primo_calcolo(c: Città, inizio: DataOra, fine: Dataora) Utente[0..*]
+    -pre-condizioni:
+        -...
+    
+    -post_condizioni:
+        -sia E l'insieme degli u: Utente coinvolti di associazione con c tale che (u, c) ut_cit
+        -sia F l'insieme degli oggetti u coinvolti in un link di associazione con a:Abitazione tale che (u, a) ut_ab con inizio >= a.indisponibilità.fine e fine < a.indisponibilità.inizio in E 
+        -result = F
