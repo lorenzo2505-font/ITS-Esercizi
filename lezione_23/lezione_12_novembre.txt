@@ -1,0 +1,179 @@
+REST
+
+-architettura stateless client-server
+
+-utilizza HTTP come protocollo di comunicazione 
+
+-principi fondamentali
+
+    -risorse: identificate dall'uri-identificatore delle risorse (url localizza le risorse)
+    -metodi http: get, post, put, delete
+    -rappresentazioni: json, xml
+    -stateless: ogni richiesta è indipendente
+    -cache: risposte cacheable quando appropiato 
+
+
+REST VANTAGGI 
+
+-semplicità: utilizza standard http esistenti 
+-scalabilità: architettura stateless
+-flessibilità: supporta diversi formati dati 
+-interoperabilità: funziona su diverse piattaforme
+-separazione: client e server indipendenti 
+
+
+RISORSE E URI: PROGETTAZIONE
+
+-una risorsa = un'entità del domionio (oggetti in analisi concettuale)
+-uri dovrebbero essere nomi (sostantivi), non verbi 
+-utilizzare plurali per le collezioni 
+
+URI E RISORSE: ESEMPI CORRETTI
+
+-GET /libri # ottenere tutti i libri
+-GET /libri/5 # ottenere libro con id 5
+-POST /libri # creare un nuovo libro
+-PUT /libri/5 # aggiornare libro ID 5
+-DELETE /libri/5 # eliminare libro ID 5
+
+REST: METODI HTTP E OPERAZIONI CRUD 
+
+IDEMPOTENTE (quando si fa la stessa richietsa più volte non cambia il risultato)
+
+{metodo: GET, operazione CRUD: Read, descrizione: recupera risorse, idempodenite: si}
+
+{metodo: POST, operazione CRUD: Create, descrizione: crea nuove risorse, idempodenite: no}
+
+{metodo: PUT, operazione CRUD: Update, descrizione: sostituisce completamente, idempodenite: si}
+
+{metodo: PATCH, operazione CRUD: Update, descrizione: modifica parziale, idempodenite: no}
+
+{metodo: DELETE, operazione CRUD: Delete, descrizione: elimina risorsa, idempodenite: si}
+
+CODICI DI STATO HTTP
+
+2xx - Successo:
+    -200 OK -Richiesta completata
+    -201 Created -Risorsa creata
+    -204 No Content -Operazione completata senza contenuto 
+
+4xx- Errori Client:
+    -400 Bad Request -Richiesta malformata
+    -401 Unauthirized -Autenticazione richiesta 
+    -404 Not Found -Risorsa non trovata 
+    -409 Conflict -Conflitto con stato attuale 
+
+5xx - Errori Server:
+    - 500 Internal Server Error -Errore generico server 
+
+
+JSON COME STANDARD PER REST
+
+-vantaggi json:
+    -leggibili da umani
+    -supporto nativo js
+    -parsing efficiente 
+    -struttura gerarchica
+
+{
+    "id": 1,
+    "titolo": "1984",
+    "autore": "George Orwell",
+    "isbn": "978-0-452-28423-4",
+    "disponibile": true,
+    "data_pubblicazione": ["dystopian", "political"]
+}
+
+
+ESEMPIO PRATICO API REST: GESTIONE DI UNA LIBRERIA 
+
+Base URL: https://api.biblioteca.it/v1
+
+GET /libri # Lista tutti i libri 
+GET /libri?genere=fantasy # Filtro per genere
+GET /libri/123 # Dettaglio libro 
+POST /libri # Aggiungi libro 
+PUT /libri/123 # Aggiorni libro 
+DELETE /libri/123 # Elimina libro 
+
+GET /autori # Lista autori 
+GET /autori/456/libri # Libri di un autore 
+
+IL RICHARDSON MATURITY MODEL
+
+-Livelli di Maturità REST
+
+LIVELLO 0 - THE SWAMP OF POX
+
+-POX = plain Old XML (o JSON)
+
+-Caratteristiche:
+    - un Singolo endpoint(es. /api)
+    - Sempre POST 
+    - Azione specificata nel playload
+
+-Problemi: non sfrutta HTTP, difficile per fare chache, poco intuitivo (usa solo post)
+
+Esempio:
+POST /api
+Content-Type: application/json
+{
+"action": "getBook",
+"bookId": 5
+}
+POST /api
+Content-Type: application/json
+{
+"action": "createBook",
+"title": "Nuovo Libro",
+"author": "Autore"
+}
+
+LIVELLO 1: RISORSE MULTIPLE
+
+-POST /libri/5 # Ottenere libro
+-POST /libri # Operazioni sulla collezione
+-POST /autori/3 # Operazioni su autore 
+
+
+LIVELLO 2: VERBI HTTP + CODICI DI STATO 
+
+-GET /libri/5 -> 200 OK 
+-POST /libri -> 201 Created 
+-PUT /libri/5 -> 200 OK
+-DELETE /libri/5 -> 204 No Content
+-GET /libri/999 -> 404 Not Found
+
+-La maggior parte delle API REST moderne opera a questo livello 
+
+LIVELLO 3 - HATEOAS
+
+-HATEOAS = Hypermedia AS The Engine Of Apllication State
+
+-Risposta con controlli ipermedia
+
+-Vantaggi:
+    -Client dinamico e autodescrittivo
+    -Evoluzione API senza breaking changes
+    -Navigabilità come il web 
+
+-Svantaggi:
+    -Maggiore Complessità
+    -Playload più grandi 
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+{
+"id": 5,
+"titolo": "1984",
+"autore": "George Orwell",
+"_links": {
+"self": {"href": "/libri/5"},
+"edit": {"href": "/libri/5", "method":
+"PUT"},
+"delete": {"href": "/libri/5", "method":
+"DELETE"},
+"author": {"href": "/autori/42"},
+"reviews": {"href": "/libri/5/recensioni"}
+}
+}
