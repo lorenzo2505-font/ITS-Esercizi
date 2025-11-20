@@ -1,14 +1,22 @@
+import sys
+
 import requests
 # va installato con 'pip install requests'
 
 import json
+
+
+# Questi sono dei test che imitano un client
+
+
+
 headers = {
             'Content-type': 'application/json',
             'Accept': 'application/json'
         }
 
 def _show_response(response: requests.Response, n:int = 1):
-    print(f"\n\n{'=' * 10} TEST {n} - GET {response.url} {'=' * 10}")
+    print(f"\n\n{"=" * 10} TEST {n} - {response.request.method} {response.url} {"=" * 10}")
     print(f"\nRESPONSE:\n"
           f"- HTTP Status Code: {response.status_code}\n"
           f"- JSON CONTENT:")
@@ -50,36 +58,25 @@ def test_get_citta(id_citta: int, n:int):
     response = requests.get(url=f"http://localhost:5000/citta/{id_citta}", headers=headers)
     _show_response(response, n=n)
 
-def test_get_aeroporto(codice: str, n: int):
-    response = requests.get(url = f"http://localhost:5000/aeroporti/{codice}", headers=headers)
-    _show_response(response, n = n)
+def test_create_nazione(nome_nazione: str, fondazione: int, n:int):
 
-def test_create_nazione(nome_nazione: str, n:int):
-    response = requests.post(url=f"http://localhost:5000/nazioni", headers=headers,
-                             json={"nome": nome_nazione})
+    response = requests.post(url=f"http://localhost:5000/nazioni",
+                             headers=headers,
+                             json={"nome": nome_nazione, "fondazione": fondazione})
+
+
+    response.encoding = "utf-8"
     _show_response(response, n)
-
-def test_create_citta(id: int, nome: str, abitanti: int, nazione: str, n: int):
-    response = requests.post(url = f"http://localhost:5000/citta", headers = headers, 
-                             json = {"id": id, "nome": nome, "abitanti": abitanti, "nazione": nazione})
-    _show_response(response, n)
-
-def test_get_compagnia(id: int, n: int):
-    response = requests.get(url = f"http://localhost:5000/compagnie/{str(id)}", headers=headers)
-    _show_response(response, n = n)
 
 if __name__ == "__main__":
-    # test_get_nazioni()
-    # test_get_all_citta()
-    # test_get_compagnie()
-    # test_get_aeroporti()
-    # test_get_voli()
-    # test_get_nazione("Jamaica", 6)
-    # test_get_nazione("Francia", 7)
-    # test_get_citta(165, 8)
-    # test_create_nazione(nome_nazione="Jamaica", n=9)
-    # test_get_aeroporto("FCO", 999)
-    test_get_compagnia(1, 1000)
-    pass
+    test_get_nazioni()
+    test_get_all_citta()
+    test_get_compagnie()
+    test_get_aeroporti()
+    test_get_voli()
+    test_get_nazione("Jamaica", 6)
+    test_get_nazione("Francia", 7)
+    test_get_citta(165, 8)
+    test_create_nazione(nome_nazione="Jamaica", fondazione=1962, n=9)
 
 
