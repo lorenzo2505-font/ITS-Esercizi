@@ -1,7 +1,6 @@
-from flask import Flask, jsonify, url_for
+from flask import Flask, url_for, request, jsonify
 from abc import ABC, abstractmethod
-import requests 
-import json
+
 
 class Animal(ABC):
     
@@ -98,7 +97,7 @@ class Shelter:
 
         if not(self.is_adopted(animal_id)):
             self.adoptions[animal_id] = adopter_name
-        
+
         else:
             pass
 
@@ -162,42 +161,55 @@ def get_animal_adoption(id: str):
 
 @app.route('/animals/add', methods = ['POST'])
 def add_animals():
+    payload = request.get_json() # legge i dati json dalla richiesta, lo converte in un dizionario python
 
-    payload = requests.get_json()
-
-    if ("type" in payload) and (payload["type"] == "dog" or payload["type"] == "cat"): 
-
-        if (payload["type"] == "dog"):
-            dog_fields: list = ["id", "name", "age_years", "weight_kg", "breed", "is_trained"]
-
-            for el in dog_fields:
-                
-                if el not in dog_fields:
-                    raise KeyError(f"campo: {el} non presente")
-            
-            dog: Dog = Dog(payload["id"], payload["name"], payload["age_years"], payload["weight_kg"], payload["breed"], payload["is_trained"])
-
-            s.add(dog)
-
-            return jsonify({"status": "ok", "added": dog.info()})
-        
-        elif (payload["type"] == "cat"):
-            cat_fields: list = ["id", "name", "age_years", "weight_kg", "indoor_only", "favorite_toy"]
-
-            for el in cat_fields:
-
-                if el not in cat_fields:
-                    raise KeyError(f"campo: {el} non presente ")
-            
-            cat: Cat = Cat(payload["id"], payload["name"], payload["age_years"], payload["weight_kg"], payload["indoor_only"], payload["favorite_toy"])
-
-            s.add(cat)
-
-            return jsonify({"status": "ok", "add": cat.info()})
+    if not payload or ("type" not in payload or (payload["type"] != "dog" and payload["type"] != "cat")): # controllo se il payload non è vuoto e se è presente il campo type (ed uguale a cat o dog)
+        return jsonify({"errore": "il campo type è obbligatotrio e deve essere uguale a dog o cat"}), 400
     
-    raise KeyError("tipo non presente o non valido")
+    dog_fields: list = ["id", "name", "age_years", "weight_kg", "breed", "is_trained"]
+    cat_fields: list = ["id", "name", "age_years", "weight_kg", "indoor_only", "favorite_toy"]
+
+    if "type" == "dog": # se type è uguale a dog allore verifico che siano presenti tutti i suoi campi, in caso contrario mando un json di errore
+        
+        for field in dog_fields: 
+            
+            if field not in payload:
+                return jsonify({"errore": f"campo obbligatorio: {field} non presente"}), 400
+        
+        dog: Dog = Dog(payload["id"], payload["name"], payload["age_years"], payload["weight_kg"], payload["breed"], payload["is_trained"])
+        s.add(dog) # creo una nuova istanza di dog e lo aggiunfo al dizionario animals alla classe shelter
+
+        return jsonify({"status": "ok", "added": dog.info()}), 201 # ritrono il json con la nuova risorsa creata
+    
+    else: # procedimento analogo nel caso type sia uguale a cat
+
+        for field in cat_fields:
+
+            if field not in payload:
+                return {"errore": f"campo obbligatorio: {field} non presente"}
+        
+        cat: Cat = Cat(payload["id"], payload["name"], payload["age_years"], payload["weight_kg"], payload["indoor_only"], payload["favorite_toy"])
+        s.add(cat)
+
+        return jsonify({"status": "ok", "added": cat.info()}), 201
 
 
+@app.route('/animals/<string:id>/adopt', methods = ['POST'])
+def adopt_animals(id: str):
+    payload = request.get_json() # legge i dati della richiesta e lo converte in un dizionario python
+
+    if not payload or "adopter_name" not in payload: # controllo che payload non sia vuoto e che abbia il campo adopter_name
+        return jsonify({"errore": "il campo adopter_name non è presente"}), 400
+    
+    if id not in s.animals: # controllo se id è presente in s.animals, se non c'è invio un json di errore
+        return jsonify({"errore": "animale non presente"}), 400
+    
+    s.set_adopted(id, payload["adopter_name"]) # nel caso id dovesse essere presente gestisco l'adozione con s.set_adopted()
+
+    return jsonify({"id": id, "adopted": True, "adopter_name": payload["adopter_name"]}), 201 # ritorno il json con la nuova risorsa creata 
+
+
+        
     
 
     
